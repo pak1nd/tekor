@@ -140,7 +140,1726 @@ video{width:100%;display:block}
 
 var KONFIG = {
   // Tempel URL Web App dari Apps Script (Deploy > New deployment > Web app)
-  ALAMAT_GUDANG: 'https://script.google.com/a/macros/unimed.ac.id/s/AKfycby8RCBJxzHvSuqJeaQLOrnpI9UP_R1gMzCtIEjSc0B-LpMPDwzEbe7oOdL_uWhWiCkY/exec',
+  ALAMAT_GUDANG: '<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12161C">
+<meta name="description" content="Aplikasi mata kuliah Teknologi Keolahragaan — Ilmu Keolahragaan UNIMED">
+<title>Teknologi Keolahragaan</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikon-192.png">
+<link rel="apple-touch-icon" href="ikon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--ink:#12161C;--ink2:#1B222B;--paper:#F2F5F4;--card:#FFF;
+--line:#DCE2E0;--line2:#C3CCC9;--txt:#12161C;--txt2:#5D686F;--txt3:#8C959B;
+--signal:#00A08A;--signal-bg:#E2F4F0;--flare:#FF5A36;
+--warn:#D9932B;--warn-bg:#FBF0DC;--ok:#2E9E5B;--ok-bg:#E4F4EA;
+--err:#D93B3B;--err-bg:#FBE8E8;--accent:#12161C;
+--r:10px;--r-lg:16px;
+--fd:'Bricolage Grotesque',system-ui,sans-serif;
+--fb:'Instrument Sans',system-ui,sans-serif;
+--fm:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--txt);font-family:var(--fb);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;font-size:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{width:100%;padding:10px 12px;border:1px solid var(--line2);border-radius:var(--r);background:var(--card);outline:none;font-family:inherit;font-size:15px;color:var(--txt)}
+input:focus,textarea:focus{border-color:var(--signal);box-shadow:0 0 0 3px rgba(0,160,138,.15)}
+textarea{resize:vertical;min-height:92px}
+h1,h2,h3{font-family:var(--fd);font-weight:800;letter-spacing:-.02em;margin:0}
+h1{font-size:26px;line-height:1.15}h2{font-size:19px;line-height:1.2}h3{font-size:16px;font-weight:600}
+.mono{font-family:var(--fm)}
+.app{max-width:440px;margin:0 auto;min-height:100vh;background:var(--paper);box-shadow:0 0 0 1px var(--line);padding-bottom:78px}
+.pad{padding:18px 18px 26px}
+.hd{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:10px;min-height:54px}
+.hd .ttl{font-family:var(--fd);font-weight:600;font-size:15px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ib{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;border:1px solid transparent}
+.ib:hover{background:var(--card);border-color:var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 16px;border-radius:var(--r);background:var(--card);border:1px solid var(--line2);font-weight:500;font-size:14px;transition:transform .08s}
+.btn:active{transform:scale(.985)}
+.btn.pri{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.sig{background:var(--signal);color:#fff;border-color:var(--signal)}
+.btn.full{width:100%}.btn.sm{padding:6px 11px;font-size:13px;border-radius:8px}
+.btn:disabled{opacity:.45;cursor:default}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px}
+.lbl{font-size:11px;font-family:var(--fm);letter-spacing:.09em;text-transform:uppercase;color:var(--txt3)}
+.mut{color:var(--txt2);font-size:13.5px}
+.tag,.chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-family:var(--fm);padding:3px 8px;border-radius:20px;background:var(--paper);border:1px solid var(--line)}
+.chip{border-radius:6px;padding:2px 7px;border:none}
+.row{display:flex;align-items:center;gap:12px}.sp{flex:1;min-width:0}
+.stack{display:flex;flex-direction:column;gap:12px}
+.hide{display:none!important}
+.pulse{display:block;width:100%;height:26px}
+.pulse path{fill:none;stroke:var(--signal);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;animation:trace 2.4s .1s ease-out forwards}
+@keyframes trace{to{stroke-dashoffset:0}}
+.route{position:relative;padding-left:44px}
+.route:before{content:"";position:absolute;left:19px;top:16px;bottom:26px;width:2px;background:var(--line2)}
+.node{position:relative;margin-bottom:10px}
+.node .dot{position:absolute;left:-44px;top:12px;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:13px;font-weight:700;background:var(--paper);border:2px solid var(--line2);color:var(--txt3)}
+.node.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.node.peek .dot{background:var(--warn-bg);border-color:var(--warn);color:#8a5c10}
+.pcard{width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:13px 14px;display:flex;align-items:center;gap:10px}
+.node.lock .pcard{background:transparent;border-style:dashed;opacity:.72}
+.node.live .pcard{border-width:1.5px}
+.pcard h3{font-size:15px;font-weight:600;font-family:var(--fd)}
+.scene{position:relative;height:262px;overflow:hidden;background:var(--ink)}
+.scene .bg{position:absolute;inset:0;opacity:.24}
+.scene .glow{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 22%,var(--accent) 0%,transparent 62%);opacity:.45}
+.scene .eyebrow{position:absolute;top:14px;left:16px;color:rgba(255,255,255,.6);font-family:var(--fm);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.hot{position:absolute;display:flex;flex-direction:column;align-items:center;gap:5px;width:78px}
+.hot .orb{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--ink);transition:transform .15s;position:relative}
+.hot:active .orb{transform:scale(.93)}
+.hot .cap{font-size:11.5px;color:rgba(255,255,255,.9);font-weight:500}
+.hot.big .orb{width:66px;height:66px;font-size:28px}
+.hot.off .orb{background:rgba(255,255,255,.16);color:rgba(255,255,255,.5)}
+.hot.off .cap{color:rgba(255,255,255,.5)}
+.hot .badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:var(--ok);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.npc{display:flex;gap:10px;padding:14px 16px;align-items:flex-start;background:var(--card);border-bottom:1px solid var(--line)}
+.npc .av{width:38px;height:38px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.npc .bub{background:var(--paper);border-radius:14px;border-top-left-radius:4px;padding:9px 13px;font-size:14px}
+.bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:4px;transition:width .5s}
+.tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 4px 10px;max-width:440px;margin:0 auto}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 0;font-size:10.5px;color:var(--txt3);font-weight:500}
+.tab i{font-size:21px;font-style:normal}
+.tab.on{color:var(--accent)}
+.viewport{background:var(--ink);border-radius:var(--r-lg);overflow:hidden;position:relative}
+.readout{font-family:var(--fm);font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px}
+.mini div{background:var(--paper);border-radius:var(--r);padding:9px 11px}
+.mini b{display:block;font-family:var(--fm);font-size:17px;font-weight:700}
+.mini span{font-size:11px;color:var(--txt2)}
+.gcard{display:flex;gap:11px;padding:12px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);align-items:flex-start;text-align:left;width:100%}
+.gcard .ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.sig{width:100%;height:120px;background:var(--card);border:1.5px dashed var(--line2);border-radius:var(--r);touch-action:none;display:block}
+.note{background:var(--warn-bg);border-radius:var(--r);padding:11px 13px;font-size:13px;color:#6b4708}
+.okbox{background:var(--ok-bg);border-radius:var(--r);padding:11px 13px;font-size:13px;color:#1c6b3c}
+.errbox{background:var(--err-bg);border-radius:var(--r);padding:11px 13px;font-size:13px;color:#8e1f1f}
+.errtx{color:var(--err);font-size:13px;margin:6px 0 0}
+.seg{display:flex;background:var(--paper);border-radius:var(--r);padding:3px;gap:3px}
+.seg button{flex:1;padding:8px;border-radius:8px;font-size:13px;font-weight:500;color:var(--txt2)}
+.seg button.on{background:var(--card);color:var(--txt);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.list{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
+.item{display:flex;align-items:center;gap:11px;padding:12px 14px;border-bottom:1px solid var(--line);width:100%;text-align:left}
+.item:last-child{border-bottom:none}
+.pres{position:fixed;inset:0;background:var(--ink);color:#fff;z-index:100;display:flex;flex-direction:column;padding:5vh 6vw}
+.pres h1{font-size:clamp(30px,5.4vw,58px);color:#fff;margin-bottom:.5em}
+.pres li{font-size:clamp(18px,2.6vw,30px);line-height:1.5;color:rgba(255,255,255,.9);margin-bottom:.55em}
+.pres ul{padding-left:1.1em;margin:0}
+.pres .foot{margin-top:auto;display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.55);font-family:var(--fm);font-size:13px}
+.pres .foot button{color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;width:42px;height:42px;font-size:19px}
+.pita{position:fixed;top:0;left:0;right:0;z-index:60;padding:7px 14px;font-size:12.5px;text-align:center;color:#fff;background:var(--flare)}
+.pita.sync{background:var(--signal)}
+.muat{display:flex;flex-direction:column;align-items:center;gap:10px;padding:56px 20px;color:var(--txt2)}
+.putar{width:26px;height:26px;border:2.5px solid var(--line2);border-top-color:var(--signal);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+video{width:100%;display:block}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(min-width:900px){.app{max-width:920px}.tabs{max-width:920px}}
+</style>
+</head>
+<body>
+<div id="pita"></div>
+<div id="root" class="app"></div>
+<div id="tabbar"></div>
+<div id="overlay"></div>
+<script>
+/* =====================================================================
+   TEKNOLOGI KEOLAHRAGAAN — Aplikasi mahasiswa dan dosen
+   Ahmad Indra Harahap, M.Kom — Ilmu Keolahragaan UNIMED
+
+   YANG HARUS DIISI: dua baris di bawah ini.
+   ===================================================================== */
+
+var KONFIG = {
+  // Tempel URL Web App dari Apps Script (Deploy > New deployment > Web app)
+  ALAMAT_GUDANG: 'https://script.google.com/macros/s/AKfycby8RCBJxzHvSuqJeaQLOrnpI9UP_R1gMzCtIEjSc0B-LpMPDwzEbe7oOdL_uWhWiCkY/exec',
+  // Harus sama persis dengan "Kunci rahasia aplikasi" di tab Pengaturan
+  KUNCI: 'tekor-IKOR-2026'
+};
+
+/* --------------------------------------------------------------------
+   Tema tiap portal: warna, ikon, latar, dan sapaan Coach Byte.
+   Isi materinya sendiri diambil dari Sheets, bukan dari sini.
+   -------------------------------------------------------------------- */
+var TEMA = {
+ 1:{w:'#7A6AD9',i:'\u25CE',s:'studio',npc:'Selamat datang. Sebelum menyentuh alatnya, kita lihat dulu bagaimana olahraga berubah sejak zaman stopwatch manual.'},
+ 2:{w:'#3D7BD6',i:'\u25A4',s:'studio',npc:'Ini gudang alatnya. Kenali dulu bentuk fisiknya sebelum kita pakai di lapangan.'},
+ 3:{w:'#DB456A',i:'\u2665',s:'lab',npc:'Hari ini kita baca detak jantungmu lewat kamera HP. Siapkan jari telunjuk.'},
+ 4:{w:'#5F6B75',i:'\u263C',s:'diskusi',npc:'Kasus nyata. Klubnya sudah beli alat mahal, tapi pelatihnya tetap tidak pakai. Kenapa?'},
+ 5:{w:'#2E9E5B',i:'\u2632',s:'lapangan',npc:'Keluar dari kelas. HP-mu punya GPS yang prinsipnya sama dengan rompi pemain profesional.'},
+ 6:{w:'#00A08A',i:'\u25CB',s:'lab',npc:'Kamera yang tadi membaca jarimu, sekarang membaca seluruh tubuhmu.'},
+ 7:{w:'#3D7BD6',i:'\u25A6',s:'studio',npc:'Data dari pertemuan kemarin sudah menumpuk. Kita ubah jadi sesuatu yang terbaca dalam 5 detik.'},
+ 8:{w:'#C98A21',i:'\u25A3',s:'aula',npc:'Bagian teori 40 persen, studi kasus 60 persen. Kerjakan dengan tenang.'},
+ 9:{w:'#7A6AD9',i:'\u25C9',s:'studio',npc:'Yang mengenali gerakanmu di pertemuan 6 itu sudah AI. Sekarang kita lihat sejauh apa dia dipakai.'},
+ 10:{w:'#7A6AD9',i:'\u25A3',s:'studio',npc:'Bola yang tahu seberapa keras ia ditendang, raket yang menghitung pukulanmu sendiri.'},
+ 11:{w:'#9578DB',i:'\u25A1',s:'studio',npc:'Latihan tanpa lapangan, penonton tanpa stadion. Ini yang paling sering dijanjikan berlebihan.'},
+ 12:{w:'#DB6A3D',i:'\u25CE',s:'diskusi',npc:'VAR dan Hawk-Eye. Teknologi yang paling sering diperdebatkan penonton.'},
+ 13:{w:'#00705F',i:'\u270E',s:'proyek',npc:'Mulai sekarang kalian membangun satu hal nyata. Tahap pertama: putuskan apa.'},
+ 14:{w:'#00705F',i:'\u2699',s:'proyek',npc:'Proposal sudah disetujui. Buat versi paling sederhana yang sudah bisa dicoba orang.'},
+ 15:{w:'#00705F',i:'\u2696',s:'proyek',npc:'Sebelum diserahkan: siapa sebenarnya yang memiliki data atlet yang kalian kumpulkan?'},
+ 16:{w:'#C98A21',i:'\u265B',s:'aula',npc:'Presentasikan. Bukan cuma apa yang kalian buat, tapi masalah apa yang benar-benar terselesaikan.'}
+};
+var NAMA_SCENE={lab:'Lab sensor',lapangan:'Lapangan',studio:'Studio data',diskusi:'Ruang diskusi',proyek:'Ruang proyek',aula:'Aula ujian'};
+
+/* Jenis simulasi tiap pertemuan; dipakai bila kolom Simulasi di Sheets kosong. */
+var SIM_BAWAAN={1:'timeline',2:'galeri',3:'hr',4:'kasus',5:'gps',6:'pose',7:'dashboard',8:'ujian',
+ 9:'galeri',10:'galeri',11:'galeri',12:'kasus',13:'proyek',14:'proyek',15:'proyek',16:'ujian'};
+function jenisSim(p){
+  var t=String(p.simulasi||'').toLowerCase();
+  if(/detak|jantung|hr/.test(t))return 'hr';
+  if(/gps|rekam/.test(t))return 'gps';
+  if(/sudut|sendi|biomek/.test(t))return 'pose';
+  if(/galeri/.test(t))return 'galeri';
+  if(/garis waktu|timeline/.test(t))return 'timeline';
+  if(/dashboard/.test(t))return 'dashboard';
+  if(/kasus/.test(t))return 'kasus';
+  if(/proyek/.test(t))return 'proyek';
+  if(/ujian|kuis|presentasi/.test(t))return 'ujian';
+  return SIM_BAWAAN[p.n]||'galeri';
+}
+
+/* --------------------------------------------------------------------
+   Penyimpanan lokal. Dibungkus agar tetap jalan bila peramban menolak.
+   -------------------------------------------------------------------- */
+var Simpan=(function(){
+  var bayangan={},bisa=false;
+  try{localStorage.setItem('_uji','1');localStorage.removeItem('_uji');bisa=true}catch(e){}
+  return {
+    ambil:function(k){try{return bisa?localStorage.getItem(k):(bayangan[k]||null)}catch(e){return bayangan[k]||null}},
+    taruh:function(k,v){try{bisa?localStorage.setItem(k,v):(bayangan[k]=v)}catch(e){bayangan[k]=v}},
+    hapus:function(k){try{bisa?localStorage.removeItem(k):delete bayangan[k]}catch(e){delete bayangan[k]}}
+  };
+})();
+
+/* --------------------------------------------------------------------
+   Hubungan ke gudang (Apps Script).
+   Content-Type text/plain dipakai agar tidak terhalang aturan CORS.
+   -------------------------------------------------------------------- */
+var TERSAMBUNG = KONFIG.ALAMAT_GUDANG.indexOf('http')===0;
+
+function gudang(aksi,data,pilihan){
+  pilihan=pilihan||{};
+  if(!TERSAMBUNG) return Promise.resolve({ok:false,pesan:'Aplikasi belum tersambung ke gudang.',takTersambung:true});
+  var isi=Object.assign({aksi:aksi,kunci:KONFIG.KUNCI},data||{});
+  return fetch(KONFIG.ALAMAT_GUDANG,{
+    method:'POST',redirect:'follow',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(isi)
+  }).then(function(r){return r.json()})
+    .catch(function(e){
+      if(pilihan.antre){ antrekan(isi); return {ok:true,pesan:'Tersimpan di HP, akan dikirim saat ada sinyal.',tertunda:true}; }
+      return {ok:false,pesan:'Tidak dapat terhubung. Periksa sinyal internet.'};
+    });
+}
+
+/* Antrean kiriman saat internet putus */
+function antrekan(isi){
+  var q=JSON.parse(Simpan.ambil('antrean')||'[]');
+  q.push({isi:isi,waktu:Date.now()});
+  Simpan.taruh('antrean',JSON.stringify(q));
+  tampilPita('Tersimpan di HP. Menunggu sinyal.','');
+}
+function kirimAntrean(){
+  var q=JSON.parse(Simpan.ambil('antrean')||'[]');
+  if(!q.length||!TERSAMBUNG)return;
+  tampilPita('Mengirim '+q.length+' data tertunda...','sync');
+  var sisa=[],selesai=0;
+  var urut=q.reduce(function(rantai,item){
+    return rantai.then(function(){
+      return fetch(KONFIG.ALAMAT_GUDANG,{method:'POST',redirect:'follow',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(item.isi)})
+        .then(function(r){return r.json()}).then(function(){selesai++})
+        .catch(function(){sisa.push(item)});
+    });
+  },Promise.resolve());
+  urut.then(function(){
+    Simpan.taruh('antrean',JSON.stringify(sisa));
+    tampilPita(sisa.length?(sisa.length+' data masih tertunda'):(selesai+' data terkirim'),sisa.length?'':'sync');
+    setTimeout(function(){tampilPita('')},3000);
+    if(!sisa.length) muatUlangProfil();
+  });
+}
+window.addEventListener('online',kirimAntrean);
+
+function tampilPita(teks,jenis){
+  var p=document.getElementById('pita');
+  if(!teks){p.innerHTML='';document.body.style.paddingTop='';return}
+  p.innerHTML='<div class="pita '+(jenis||'')+'">'+teks+'</div>';
+  document.body.style.paddingTop='30px';
+}
+
+/* --------------------------------------------------------------------
+   Keadaan aplikasi
+   -------------------------------------------------------------------- */
+var S={masuk:false,peran:'mhs',nama:'',nim:'',kelas:'',namaKelas:'',
+ terbuka:1,progres:{},kelompok:null,konten:null,
+ layar:'daftar',portal:1,tab:'peta',sibuk:false,
+ tiket:null,dosen:null,ringkasan:null,antri:null};
+
+var R=document.getElementById('root'),TB=document.getElementById('tabbar'),OV=document.getElementById('overlay');
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function P(n){var k=(S.konten&&S.konten.pertemuan)||[];for(var i=0;i<k.length;i++)if(k[i].n===Number(n))return k[i];return null}
+function tema(n){return TEMA[n]||TEMA[1]}
+function prog(n){return S.progres[n]||{}}
+function tuntas(n){var p=prog(n);return !!(p.materi&&p.sim&&p.refleksi&&p.tugas&&p.presensi)}
+function status(n){
+  if(tuntas(n))return 'done';
+  if(n<=S.terbuka)return 'live';
+  if(n===S.terbuka+1)return 'peek';
+  return 'lock';
+}
+function go(l,n){if(n)S.portal=n;S.layar=l;window.scrollTo(0,0);render()}
+function tandaiLokal(n,k){if(!S.progres[n])S.progres[n]={};S.progres[n][k]=true}
+
+/* Latar tiap ruang, digambar sebagai SVG di dalam kode. */
+var SCENES = {
+ lab: "<g opacity=\".2\"><path d=\"M0 40h400M0 90h400M0 140h400M0 190h400M0 240h400M50 0v270M100 0v270M150 0v270M200 0v270M250 0v270M300 0v270M350 0v270\" stroke=\"#fff\" stroke-width=\".5\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <rect x=\"34\" y=\"52\" width=\"150\" height=\"96\" rx=\"4\"/> <path d=\"M34 74h150\"/> <path d=\"M44 112h14l6-22 8 44 9-52 7 30h12l6-14 5 22 6-26h13l5 18h14\" stroke-width=\"2.2\" stroke-linecap=\"round\"/> <path d=\"M52 62h5M64 62h5M76 62h5\"/> <circle cx=\"168\" cy=\"62\" r=\"4\"/> <rect x=\"44\" y=\"158\" width=\"130\" height=\"10\" rx=\"2\"/> <circle cx=\"62\" cy=\"182\" r=\"9\"/><circle cx=\"92\" cy=\"182\" r=\"9\"/> <path d=\"M62 176v6M92 179h6\" stroke-linecap=\"round\"/> <rect x=\"124\" y=\"172\" width=\"52\" height=\"20\" rx=\"3\"/> <path d=\"M134 182h32\" stroke-dasharray=\"3 4\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <path d=\"M236 78c0-16 12-28 28-28s28 12 28 28v66c0 16-12 28-28 28s-28-12-28-28z\"/> <path d=\"M236 118h56\"/> <circle cx=\"264\" cy=\"98\" r=\"13\"/> <path d=\"M258 98l4 5 9-11\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/> <path d=\"M248 138h32M248 150h22\"/> <path d=\"M312 96v56M312 96l-8 8M312 96l8 8\" stroke-linecap=\"round\"/> <path d=\"M330 84h44v84h-44z\"/> <path d=\"M338 100h28M338 112h28M338 124h18M338 148h28\" stroke-dasharray=\"2 5\"/> </g> <g opacity=\".55\" fill=\"none\" stroke=\"#fff\" stroke-width=\"1\"> <path d=\"M34 206h150M34 202v8M184 202v8\"/> <path d=\"M236 206h136M236 202v8M372 202v8\"/> </g> <g fill=\"#fff\" opacity=\".6\" font-family=\"monospace\" font-size=\"9\"> <text x=\"96\" y=\"220\">SINYAL PPG</text><text x=\"278\" y=\"220\">SENSOR OPTIK</text> </g>",
+ lapangan: "<g opacity=\".2\"><path d=\"M0 40h400M0 90h400M0 140h400M0 190h400M0 240h400M50 0v270M150 0v270M250 0v270M350 0v270\" stroke=\"#fff\" stroke-width=\".5\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <path d=\"M76 202L34 62h332l-42 140z\"/> <path d=\"M55 132h290\"/> <circle cx=\"200\" cy=\"132\" r=\"34\"/> <path d=\"M148 62h104v26H148z\"/> <path d=\"M126 202h148v-30H126z\"/> <path d=\"M186 62h28v10h-28z\"/> <path d=\"M170 202h60v-12h-60z\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"1 7\"> <path d=\"M104 178c30-14 22-44 48-52 30-10 34 22 58 16 26-6 20-40 48-44 22-3 32 14 46 10\"/> </g> <g fill=\"#fff\"><circle cx=\"104\" cy=\"178\" r=\"4\"/><circle cx=\"304\" cy=\"108\" r=\"4\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.3\" opacity=\".75\"> <path d=\"M300 46a52 52 0 0 1 34 30M300 32a68 68 0 0 1 46 40M300 18a84 84 0 0 1 58 50\"/> <circle cx=\"296\" cy=\"52\" r=\"3.5\" fill=\"#fff\" stroke=\"none\"/> </g> <g fill=\"#fff\" opacity=\".6\" font-family=\"monospace\" font-size=\"9\"> <text x=\"90\" y=\"228\">JEJAK GPS</text><text x=\"288\" y=\"228\">4.2 KM</text> </g>",
+ studio: "<g opacity=\".2\"><path d=\"M0 46h400M0 96h400M0 146h400M0 196h400M60 0v270M140 0v270M220 0v270M300 0v270M380 0v270\" stroke=\"#fff\" stroke-width=\".5\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <rect x=\"30\" y=\"44\" width=\"164\" height=\"112\" rx=\"5\"/> <path d=\"M30 64h164\"/> <circle cx=\"42\" cy=\"54\" r=\"3\"/><circle cx=\"54\" cy=\"54\" r=\"3\"/> <path d=\"M46 142V96M70 142v-30M94 142V78M118 142v-46M142 142V88M166 142v-62\" stroke-width=\"7\" stroke-linecap=\"round\" opacity=\".85\"/> <path d=\"M30 142h164\" opacity=\".5\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <rect x=\"212\" y=\"44\" width=\"158\" height=\"66\" rx=\"5\"/> <path d=\"M222 96l24-22 20 12 26-32 22 18 26-30 20 14\" stroke-width=\"2.2\" stroke-linecap=\"round\"/> <rect x=\"212\" y=\"122\" width=\"74\" height=\"60\" rx=\"5\"/> <circle cx=\"249\" cy=\"152\" r=\"20\"/> <path d=\"M249 132a20 20 0 0 1 17 30z\" fill=\"#fff\" opacity=\".28\" stroke=\"none\"/> <rect x=\"296\" y=\"122\" width=\"74\" height=\"60\" rx=\"5\"/> <path d=\"M308 168h50M308 156h34M308 144h42\" stroke-linecap=\"round\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\"> <rect x=\"30\" y=\"168\" width=\"164\" height=\"42\" rx=\"5\"/> <path d=\"M42 190h30M84 190h30M126 190h30M168 190h14\" stroke-dasharray=\"3 4\"/> </g> <g fill=\"#fff\" opacity=\".6\" font-family=\"monospace\" font-size=\"9\"> <text x=\"30\" y=\"232\">BEBAN LATIHAN</text><text x=\"212\" y=\"232\">TREN MINGGUAN</text> </g>",
+ diskusi: "<g opacity=\".2\"><path d=\"M0 50h400M0 110h400M0 170h400M0 230h400M70 0v270M170 0v270M270 0v270M370 0v270\" stroke=\"#fff\" stroke-width=\".5\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <ellipse cx=\"200\" cy=\"176\" rx=\"106\" ry=\"34\"/> <path d=\"M94 176v10a106 34 0 0 0 212 0v-10\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <circle cx=\"112\" cy=\"132\" r=\"13\"/><path d=\"M96 166c0-12 7-20 16-20s16 8 16 20\"/> <circle cx=\"200\" cy=\"118\" r=\"13\"/><path d=\"M184 152c0-12 7-20 16-20s16 8 16 20\"/> <circle cx=\"288\" cy=\"132\" r=\"13\"/><path d=\"M272 166c0-12 7-20 16-20s16 8 16 20\"/> <circle cx=\"150\" cy=\"212\" r=\"12\"/><circle cx=\"252\" cy=\"212\" r=\"12\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.4\" opacity=\".8\" stroke-linejoin=\"round\"> <path d=\"M52 42h96v42h-30l-10 14-6-14H52z\"/> <path d=\"M64 58h68M64 70h44\"/> <path d=\"M252 30h96v46h-56l-10 14-4-14h-26z\"/> <path d=\"M264 46h68M264 60h50\"/> </g> <g stroke=\"#fff\" stroke-width=\"1\" opacity=\".45\" stroke-dasharray=\"3 5\" fill=\"none\"> <path d=\"M136 128L188 118M212 118l64 12M124 148l60 44M276 148l-58 44\"/> </g> <g fill=\"#fff\" opacity=\".6\" font-family=\"monospace\" font-size=\"9\"> <text x=\"52\" y=\"248\">STUDI KASUS</text><text x=\"290\" y=\"248\">5 PESERTA</text> </g>",
+ proyek: "<g opacity=\".2\"><path d=\"M0 44h400M0 94h400M0 144h400M0 194h400M0 244h400M56 0v270M136 0v270M216 0v270M296 0v270M376 0v270\" stroke=\"#fff\" stroke-width=\".5\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <path d=\"M34 54h182v146H34z\"/> <path d=\"M34 54l182 146M216 54L34 200\" opacity=\".18\"/> <rect x=\"70\" y=\"92\" width=\"110\" height=\"66\" rx=\"3\"/> <path d=\"M70 112h110M104 92v66\"/> <path d=\"M116 126h52M116 138h34\" opacity=\".6\" stroke-dasharray=\"3 4\"/> <path d=\"M230 92v70M226 92h8M226 162h8\" opacity=\".7\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <path d=\"M327.5 79.6 L334.6 79.6 L334.6 88.4 L327.5 88.4 L324.9 94.7 L330.0 99.7 L323.7 106.0 L318.7 100.9 L312.4 103.5 L312.4 110.6 L303.6 110.6 L303.6 103.5 L297.3 100.9 L292.3 106.0 L286.0 99.7 L291.1 94.7 L288.5 88.4 L281.4 88.4 L281.4 79.6 L288.5 79.6 L291.1 73.3 L286.0 68.3 L292.3 62.0 L297.3 67.1 L303.6 64.5 L303.6 57.4 L312.4 57.4 L312.4 64.5 L318.7 67.1 L323.7 62.0 L330.0 68.3 L324.9 73.3 Z\"/> <circle cx=\"308\" cy=\"84\" r=\"9\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <rect x=\"262\" y=\"140\" width=\"92\" height=\"62\" rx=\"6\"/> <rect x=\"274\" y=\"152\" width=\"68\" height=\"30\" rx=\"3\"/> <path d=\"M284 168h10l4-10 6 20 6-14 5 8h13\" stroke-width=\"2\" stroke-linecap=\"round\"/> <circle cx=\"288\" cy=\"192\" r=\"4\"/><path d=\"M300 192h30\" stroke-linecap=\"round\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.2\" opacity=\".55\"> <path d=\"M34 218h182M34 214v8M216 214v8\"/> <path d=\"M262 218h92M262 214v8M354 214v8\"/> </g> <g fill=\"#fff\" opacity=\".6\" font-family=\"monospace\" font-size=\"9\"> <text x=\"34\" y=\"238\">RANCANGAN v1</text><text x=\"262\" y=\"238\">PROTOTIPE</text> </g>",
+ aula: "<g opacity=\".2\"><path d=\"M0 50h400M0 100h400M0 150h400M0 200h400M0 250h400M50 0v270M150 0v270M250 0v270M350 0v270\" stroke=\"#fff\" stroke-width=\".5\"/></g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <rect x=\"88\" y=\"22\" width=\"224\" height=\"106\" rx=\"3\"/> <path d=\"M88 40h224\"/> <circle cx=\"99\" cy=\"31\" r=\"3\"/><circle cx=\"110\" cy=\"31\" r=\"3\"/> <path d=\"M106 62h74M106 76h56M106 90h68M106 104h44\" stroke-dasharray=\"4 5\"/> <path d=\"M212 110V78M232 110V62M252 110V88M272 110V54M292 110V70\" stroke-width=\"6\" stroke-linecap=\"round\" opacity=\".8\"/> <path d=\"M204 110h96\" opacity=\".5\"/> <path d=\"M200 128v12M164 140h72\" opacity=\".55\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.6\" stroke-linejoin=\"round\"> <path d=\"M40 158h320\"/> <circle cx=\"146\" cy=\"168\" r=\"10\"/> <path d=\"M134 198c0-11 5-19 12-19s12 8 12 19z\"/> <path d=\"M204 168h44v32h-44z\"/> <path d=\"M214 180h24M214 190h16\" opacity=\".7\"/> <path d=\"M226 168v-8\" opacity=\".7\"/> </g> <g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.4\" opacity=\".7\" stroke-linejoin=\"round\"> <path d=\"M32 214h76v13H32zM128 214h76v13h-76zM224 214h76v13h-76zM320 214h48v13h-48z\"/> <path d=\"M32 236h76v13H32zM128 236h76v13h-76zM224 236h76v13h-76zM320 236h48v13h-48z\"/> </g> <g fill=\"#fff\" opacity=\".55\" font-family=\"monospace\" font-size=\"9\"> <text x=\"88\" y=\"12\">SIDANG PROYEK AKHIR</text> </g>"
+};
+
+
+/* =====================================================================
+   ALUR MASUK
+   ===================================================================== */
+function render(){
+  if(!S.masuk){R.innerHTML=vDaftar();TB.innerHTML='';ikat();return}
+  if(S.peran==='dosen'){renderDosen();return}
+  if(!S.konten){R.innerHTML=vMuat('Mengambil materi kuliah');TB.innerHTML='';return}
+  var v;
+  switch(S.layar){
+    case 'peta':v=vPeta();break;
+    case 'portal':v=vPortal();break;
+    case 'materi':v=vMateri();break;
+    case 'sim':v=vSim();break;
+    case 'refleksi':v=vRefleksi();break;
+    case 'tugas':v=vTugas();break;
+    case 'presensi':v=vPresensi();break;
+    case 'nilai':v=vNilai();break;
+    case 'profil':v=vProfil();break;
+    default:v=vPeta();
+  }
+  R.innerHTML=v;TB.innerHTML=vTabs();
+  var w=(S.layar==='portal'||S.layar==='sim')?tema(S.portal).w:'#12161C';
+  document.documentElement.style.setProperty('--accent',w);
+  ikat();
+}
+
+function vMuat(teks){
+  return '<div class="muat"><div class="putar"></div><div>'+esc(teks)+'</div></div>';
+}
+
+function vDaftar(){
+  var pesan=TERSAMBUNG?'':'<div class="errbox" style="margin-bottom:14px">Aplikasi belum tersambung ke gudang data. '+
+    'Isi ALAMAT_GUDANG di bagian atas berkas index.html.</div>';
+  return '<div class="pad" style="padding-top:42px">'
+  +'<svg class="pulse" viewBox="0 0 400 26" preserveAspectRatio="none" style="margin-bottom:24px">'
+  +'<path d="M0 13 L120 13 L134 13 L142 4 L152 22 L162 8 L170 13 L280 13 L400 13"/></svg>'
+  +'<h1>Teknologi<br>Keolahragaan</h1>'
+  +'<p class="mut" style="margin:8px 0 24px">16 pertemuan, 16 ruang berbeda. Masuk dengan NIM dan kode kelas dari dosen.</p>'
+  +pesan
+  +'<div class="stack">'
+  +'<div><div class="lbl" style="margin-bottom:6px">Nama lengkap</div><input id="i-nama" autocomplete="name" placeholder="Nama sesuai daftar hadir"></div>'
+  +'<div><div class="lbl" style="margin-bottom:6px">NIM</div><input id="i-nim" class="mono" inputmode="numeric" placeholder="Contoh 6213121045"></div>'
+  +'<div><div class="lbl" style="margin-bottom:6px">Kode kelas</div><input id="i-kode" class="mono" autocapitalize="characters" placeholder="Contoh TK-B26"></div>'
+  +'<p id="pesan-daftar" class="errtx hide"></p>'
+  +'<button class="btn pri full" id="b-masuk">Masuk kelas</button>'
+  +'<button class="btn full" id="b-pintu-dosen">Masuk sebagai dosen</button>'
+  +'</div></div>';
+}
+
+function vTabs(){
+  var t=[['peta','\u2630','Peta'],['nilai','\u25A1','Nilai'],['profil','\u25CF','Saya']];
+  return '<div class="tabs">'+t.map(function(x){
+    return '<button class="tab '+(S.tab===x[0]?'on':'')+'" data-tab="'+x[0]+'"><i>'+x[1]+'</i>'+x[2]+'</button>'
+  }).join('')+'</div>';
+}
+
+/* =====================================================================
+   PETA DAN PORTAL
+   ===================================================================== */
+function vPeta(){
+  var sel=0;for(var i=1;i<=16;i++)if(tuntas(i))sel++;
+  var h='<div class="hd"><div class="ttl">Kelas '+esc(S.kelas)+' \u00B7 '+esc(S.nama.split(' ')[0])+'</div>'
+   +'<span class="tag mono">'+sel+'/16</span></div><div class="pad">'
+   +'<h2 style="margin-bottom:4px">Peta pertemuan</h2>'
+   +'<p class="mut" style="margin:0 0 12px">Selesaikan satu ruang untuk membuka ruang berikutnya.</p>'
+   +'<div class="bar" style="margin-bottom:20px"><i style="width:'+(sel/16*100)+'%"></i></div><div class="route">';
+  for(var n=1;n<=16;n++){
+    var p=P(n);if(!p)continue;
+    var st=status(n),t=tema(n);
+    var sub=st==='lock'?'Terkunci':st==='peek'?'Bisa diintip':st==='done'?'Selesai':'Sedang berjalan';
+    if(p.tanggal&&st!=='lock')sub+=' \u00B7 '+p.tanggal;
+    h+='<div class="node '+st+'"><div class="dot" style="'+(st==='live'?'background:'+t.w+';border-color:'+t.w+';color:#fff':'')+'">'+n+'</div>'
+     +'<button class="pcard" data-portal="'+n+'" style="'+(st==='live'?'border-color:'+t.w:'')+'">'
+     +'<span class="sp"><span style="display:block;font-family:var(--fd);font-weight:600;font-size:15px">'+esc(p.topik)+'</span>'
+     +'<span class="mut" style="display:block;font-size:12px;margin-top:2px">'+sub+' \u00B7 bobot '+p.bobot+'%</span></span>'
+     +'<span style="color:'+(st==='lock'?'var(--txt3)':t.w)+';font-size:20px">'+(st==='lock'?'\u25CF':t.i)+'</span>'
+     +'</button></div>';
+  }
+  return h+'</div></div>';
+}
+
+function vPortal(){
+  var n=S.portal,p=P(n),t=tema(n),st=status(n),pr=prog(n);
+  if(!p)return vMuat('Memuat');
+  var kunci=(st==='peek'||st==='lock');
+  var titik=[[16,84,'materi','\u2630','Materi',0],[46,146,'sim',t.i,'Simulasi',1],
+             [72,62,'refleksi','\u25B6','Refleksi',0],[70,186,'tugas','\u270E','Tugas',0]];
+  var h='<div class="hd"><button class="ib" data-back="peta">\u2190</button>'
+   +'<div class="ttl">Pertemuan '+n+'</div><span class="tag mono">'+p.bobot+'%</span></div>'
+   +'<div class="scene"><svg class="bg" viewBox="0 0 400 270" preserveAspectRatio="xMidYMid slice">'+SCENES[t.s]+'</svg>'
+   +'<div class="glow" style="--accent:'+t.w+'"></div><div class="eyebrow">'+NAMA_SCENE[t.s]+'</div>';
+  titik.forEach(function(x){
+    var k=x[2],selesai=pr[k==='sim'?'sim':k],mati=kunci&&k!=='materi';
+    if(k==='refleksi'&&!p.video)mati=true;
+    h+='<button class="hot '+(x[5]?'big':'')+' '+(mati?'off':'')+'" style="left:'+x[0]+'%;top:'+x[1]+'px;transform:translateX(-50%)" '
+     +(mati?'data-kunci="1"':'data-buka="'+k+'"')+'>'
+     +'<span class="orb">'+(mati?'\u263C':x[3])+(selesai?'<span class="badge">\u2713</span>':'')+'</span>'
+     +'<span class="cap">'+x[4]+'</span></button>';
+  });
+  h+='</div><div class="npc"><div class="av" style="background:'+t.w+'">'+t.i+'</div>'
+   +'<div><div class="lbl" style="margin-bottom:3px">Coach Byte</div><div class="bub">'+esc(t.npc)+'</div></div></div>'
+   +'<div class="pad"><h2 style="margin-bottom:6px">'+esc(p.topik)+'</h2>';
+  if(kunci){
+    h+='<div class="note">Ruang ini belum dibuka. Materinya boleh dibaca lebih dulu, tetapi simulasi, tugas, dan presensi menunggu pertemuan berlangsung.</div>';
+  }else{
+    h+='<p class="mut" style="margin:0 0 14px">Selesaikan semuanya untuk membuka pertemuan berikutnya.</p><div class="list">';
+    var urut=[['presensi','Presensi'],['materi','Materi'],['sim','Simulasi'],['refleksi','Refleksi'],['tugas','Tugas']];
+    urut.forEach(function(u){
+      if(u[0]==='refleksi'&&!p.video)return;
+      var d=pr[u[0]];
+      h+='<button class="item" data-buka="'+u[0]+'">'
+       +'<span style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;'
+       +(d?'background:var(--ok);color:#fff':'background:var(--paper);color:var(--txt3);border:1px solid var(--line2)')+'">'+(d?'\u2713':'')+'</span>'
+       +'<span class="sp">'+u[1]+'</span><span class="mut">'+(d?'selesai':'belum')+'</span></button>';
+    });
+    h+='</div>';
+  }
+  return h+'</div>';
+}
+
+function kepala(n,judul){
+  return '<div class="hd"><button class="ib" data-back="portal">\u2190</button>'
+   +'<div class="ttl">'+esc(judul)+' \u00B7 P'+n+'</div></div>';
+}
+
+/* =====================================================================
+   MATERI, REFLEKSI, TUGAS
+   ===================================================================== */
+function vMateri(){
+  var n=S.portal,p=P(n);
+  var h=kepala(n,'Materi')+'<div class="pad">';
+  var sl=p.slide&&p.slide.id?p.slide:null;
+  if(sl){
+    var sematan=sl.jenis==='slides'
+      ? 'https://docs.google.com/presentation/d/'+sl.id+'/embed?start=false&loop=false&rm=minimal'
+      : 'https://drive.google.com/file/d/'+sl.id+'/preview';
+    var buka=sl.jenis==='slides'
+      ? 'https://docs.google.com/presentation/d/'+sl.id+'/edit'
+      : 'https://drive.google.com/file/d/'+sl.id+'/view';
+    h+='<div class="lbl" style="margin-bottom:6px">Slide kuliah</div>'
+     +'<div class="viewport" style="aspect-ratio:16/9;background:#000">'
+     +'<iframe id="bingkai-slide" style="width:100%;height:100%;border:0;display:block" '
+     +'src="'+esc(sematan)+'" title="Slide pertemuan '+n+'" allowfullscreen loading="lazy"></iframe></div>'
+     +'<div class="row" style="margin-top:9px;gap:8px">'
+     +'<button class="btn sm sp" id="b-slide-penuh">Layar penuh</button>'
+     +'<a class="btn sm sp" style="text-align:center" target="_blank" rel="noopener" href="'+esc(buka)+'">Buka terpisah</a></div>'
+     +'<p class="mut" style="font-size:12px;margin:8px 0 18px">Geser slide di dalam bingkai. '
+     +'Poin ringkasnya ada di bawah, lebih nyaman dibaca di layar HP.</p>';
+  }
+  if(!p.materi.length&&!sl){h+='<div class="note">Materi pertemuan ini belum diisi dosen.</div>';}
+  if(sl&&p.materi.length)h+='<div class="lbl" style="margin-bottom:8px">Ringkasan poin</div>';
+  p.materi.forEach(function(m,i){
+    h+='<div class="card" style="margin-bottom:12px"><div class="lbl" style="margin-bottom:5px">Bagian '+(i+1)+'</div>'
+     +'<h3 style="margin-bottom:8px">'+esc(m.h)+'</h3><ul style="margin:0;padding-left:17px">'
+     +m.b.map(function(x){return '<li style="margin-bottom:6px;font-size:14.5px">'+esc(x)+'</li>'}).join('')
+     +'</ul></div>';
+  });
+  if(status(n)!=='lock'&&status(n)!=='peek')
+    h+='<button class="btn sig full" id="b-materi" style="margin-top:6px">Tandai materi selesai</button>';
+  return h+'</div>';
+}
+
+function vRefleksi(){
+  var n=S.portal,p=P(n);
+  if(!p.video)return kepala(n,'Refleksi')+'<div class="pad"><div class="note">Pertemuan ini tidak memiliki video refleksi.</div></div>';
+  var h=kepala(n,'Refleksi')+'<div class="pad">';
+  if(p.video.idYoutube){
+    h+='<div class="viewport" style="aspect-ratio:16/9"><iframe style="width:100%;height:100%;border:0;display:block" '
+     +'src="https://www.youtube-nocookie.com/embed/'+esc(p.video.idYoutube)+'" title="Video refleksi" '
+     +'allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+  }else{
+    h+='<div class="viewport" style="height:180px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">'
+     +'<div style="color:rgba(255,255,255,.6);font-size:28px">\u25B6</div>'
+     +'<div style="color:rgba(255,255,255,.7);font-size:13px">Video belum diisi dosen</div></div>';
+  }
+  h+='<h3 style="margin:14px 0 4px">'+esc(p.video.judul)+'</h3>'
+   +'<p class="mut" style="margin:0 0 12px">'+esc(p.video.pertanyaan)+'</p>'
+   +'<textarea id="ref-isi" placeholder="Tulis refleksimu, minimal 40 karakter"></textarea>'
+   +'<div class="row" style="margin-top:6px"><span class="mut sp" id="ref-hitung">0 karakter</span></div>'
+   +'<p id="ref-salah" class="errtx hide"></p>'
+   +'<button class="btn sig full" id="b-refleksi" style="margin-top:10px">Kirim refleksi</button>';
+  return h+'</div>';
+}
+
+function vTugas(){
+  var n=S.portal,p=P(n),sudah=prog(n).tugas;
+  var h=kepala(n,'Tugas')+'<div class="pad">'
+   +'<div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:7px">'
+   +'<span class="chip">Kelas '+esc(S.kelas)+'</span><span class="chip">Bobot '+p.bobot+'%</span>'
+   +(p.batasTugas?'<span class="chip">Batas '+esc(p.batasTugas)+'</span>':'')+'</div>'
+   +'<div class="card" style="margin-bottom:14px"><div class="lbl" style="margin-bottom:6px">Perintah tugas</div>'
+   +'<p style="margin:0;font-size:14.5px">'+esc(p.tugas||'Tugas pertemuan ini belum diisi dosen.')+'</p></div>';
+  if(sudah)h+='<div class="okbox" style="margin-bottom:12px">Tugas sudah dikumpulkan. Mengirim ulang akan menggantikan yang lama, selama belum dinilai.</div>';
+  h+='<div class="lbl" style="margin-bottom:6px">Jawaban atau ringkasan</div>'
+   +'<textarea id="tg-isi" placeholder="Tulis jawaban di sini"></textarea>'
+   +'<input type="file" id="tg-berkas" class="hide" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.mp4">'
+   +'<button class="btn full" id="b-pilih-berkas" style="margin-top:10px">\u2191 Lampirkan berkas</button>'
+   +'<div id="tg-nama" class="mut hide" style="margin-top:8px"></div>'
+   +'<p id="tg-salah" class="errtx hide"></p>'
+   +'<button class="btn sig full" id="b-tugas" style="margin-top:12px">Kumpulkan tugas</button>'
+   +'<p class="mut" style="font-size:12px;margin-top:10px">Berkas maksimal 8 MB. Video sebaiknya diunggah ke YouTube lalu tautannya ditulis di jawaban.</p>';
+  return h+'</div>';
+}
+
+/* =====================================================================
+   PRESENSI — kamera dan tanda tangan sungguhan
+   ===================================================================== */
+function vPresensi(){
+  var n=S.portal;
+  var jam=new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+  var h=kepala(n,'Presensi')+'<div class="pad">'
+   +'<h2 style="margin-bottom:2px">Pertemuan '+n+'</h2>'
+   +'<div class="mut" style="margin-bottom:16px">Kelas '+esc(S.kelas)+' \u00B7 '+jam+'</div>';
+  if(prog(n).presensi)return h+'<div class="okbox">Presensi Anda sudah tercatat untuk pertemuan ini.</div></div>';
+  h+='<div class="lbl" style="margin-bottom:6px">1. Foto wajah</div>'
+   +'<div class="viewport" id="kotak-kamera" style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center">'
+   +'<div style="text-align:center;color:rgba(255,255,255,.65)"><div style="font-size:28px">\u25C9</div>'
+   +'<div style="font-size:13px;margin-top:6px">Kamera belum menyala</div></div></div>'
+   +'<div class="row" style="margin-top:9px;gap:8px">'
+   +'<button class="btn sp" id="b-nyala-kamera">Nyalakan kamera</button>'
+   +'<button class="btn sp" id="b-jepret" disabled>Ambil foto</button></div>'
+   +'<div class="lbl" style="margin:18px 0 6px">2. Tanda tangan</div>'
+   +'<canvas id="ttd" class="sig"></canvas>'
+   +'<div class="row" style="margin-top:8px"><button class="btn sm" id="b-hapus-ttd">Hapus</button>'
+   +'<span class="mut sp" style="font-size:12.5px">Coret di kotak menggunakan jari</span></div>'
+   +'<p id="pr-salah" class="errtx hide"></p>'
+   +'<button class="btn sig full" id="b-presensi" style="margin-top:14px">Kirim presensi</button>'
+   +'<p class="mut" style="font-size:12px;margin-top:10px">Foto dan tanda tangan hanya dapat dilihat dosen pengampu.</p>';
+  return h+'</div>';
+}
+
+/* =====================================================================
+   NILAI DAN PROFIL
+   ===================================================================== */
+function vNilai(){
+  var h='<div class="hd"><div class="ttl">Nilai saya</div></div><div class="pad">';
+  if(!S.nilai)return h+vMuat('Menghitung nilai')+'</div>';
+  var d=S.nilai;
+  h+='<div class="card" style="margin-bottom:14px"><div class="lbl">Nilai berjalan</div>'
+   +'<div class="row" style="align-items:baseline;gap:9px;margin:4px 0 10px">'
+   +'<span class="readout">'+(d.nilaiBerjalan===null?'\u2014':d.nilaiBerjalan)+'</span>'
+   +'<span class="tag">'+esc(d.huruf||'')+'</span>'
+   +'<span class="mut sp">dari komponen yang sudah dinilai</span></div>'
+   +'<div class="mini"><div><b>'+d.bobotTerkumpul+'%</b><span>bobot dinilai</span></div>'
+   +'<div><b>'+(100-d.bobotTerkumpul)+'%</b><span>belum dinilai</span></div></div></div>'
+   +'<div class="lbl" style="margin-bottom:8px">Rincian per pertemuan</div><div class="list">';
+  for(var n=1;n<=16;n++){
+    var p=P(n),v=d.nilai[n];
+    h+='<div class="item"><span class="chip">P'+n+'</span>'
+     +'<span class="sp" style="font-size:14px">'+esc(p?p.topik:'')+'</span>'
+     +'<span class="mono" style="font-size:13px;color:'+(v!==undefined?'var(--ok)':'var(--txt3)')+'">'
+     +(v!==undefined?v:'\u2014')+'</span></div>';
+  }
+  return h+'</div><p class="mut" style="font-size:12px;margin-top:12px">UTS dan UAS masing-masing 30 persen, menentukan lebih dari separuh nilai akhir.</p></div>';
+}
+
+function vProfil(){
+  var kel=S.kelompok;
+  var h='<div class="hd"><div class="ttl">Saya</div></div><div class="pad">'
+   +'<div class="card" style="margin-bottom:14px"><div class="row">'
+   +'<div style="width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:600;font-size:18px">'+esc(S.nama.charAt(0))+'</div>'
+   +'<div class="sp"><div style="font-weight:600">'+esc(S.nama)+'</div>'
+   +'<div class="mut mono" style="font-size:12.5px">'+esc(S.nim)+' \u00B7 Kelas '+esc(S.kelas)+'</div></div></div></div>';
+  if(kel){
+    h+='<div class="lbl" style="margin-bottom:8px">Kelompok proyek</div><div class="card" style="margin-bottom:14px">'
+     +'<div style="font-weight:600">'+esc(kel.nama||('Kelompok '+kel.no))+'</div>'
+     +(kel.judul?'<div class="mut" style="font-size:13px;margin-top:2px">'+esc(kel.judul)+'</div>':'')
+     +'<div class="mut" style="font-size:13px;margin-top:8px">'+kel.anggota.map(function(a){
+       return esc(a.nama)+(a.peran==='Ketua'?' (ketua)':'')}).join(' \u00B7 ')+'</div></div>';
+  }
+  h+='<div class="list" style="margin-bottom:14px">'
+   +'<div class="item"><span class="sp">Mata kuliah</span><span class="mut">Teknologi Keolahragaan</span></div>'
+   +'<div class="item"><span class="sp">Program studi</span><span class="mut">Ilmu Keolahragaan</span></div>'
+   +'<div class="item"><span class="sp">Dosen</span><span class="mut">Ahmad Indra H., M.Kom</span></div></div>'
+   +'<button class="btn full" id="b-segarkan" style="margin-bottom:10px">Muat ulang materi</button>'
+   +'<button class="btn full" id="b-pintu-dosen" style="margin-bottom:10px">Masuk sebagai dosen</button>'
+   +'<button class="btn full" id="b-keluar">Keluar</button>';
+  return h+'</div>';
+}
+
+/* =====================================================================
+   SIMULASI
+   ===================================================================== */
+function vSim(){
+  var n=S.portal,p=P(n),j=jenisSim(p);
+  var h=kepala(n,'Simulasi')+'<div class="pad">';
+  switch(j){
+    case 'hr':h+=simHR();break;
+    case 'gps':h+=simGPS();break;
+    case 'pose':h+=simPose();break;
+    case 'galeri':h+=simGaleri(n);break;
+    case 'timeline':h+=simTimeline();break;
+    case 'dashboard':h+=simDash();break;
+    case 'kasus':h+=simKasus(n);break;
+    case 'proyek':h+=simProyek(n);break;
+    case 'ujian':h+=simUjian(n,p);break;
+  }
+  return h+'</div>';
+}
+
+/* ---------- Pertemuan 3: PPG sungguhan lewat kamera ---------- */
+function simHR(){
+  return '<h2 style="margin-bottom:4px">Baca detak jantung</h2>'
+  +'<p class="mut" style="margin:0 0 16px">Dua cara, satu tubuh. Bandingkan hasilnya sendiri.</p>'
+  +'<div class="card" style="margin-bottom:12px"><div class="lbl" style="margin-bottom:6px">Langkah 1 \u00B7 hitung manual</div>'
+  +'<p class="mut" style="margin:0 0 10px">Raba nadi di pergelangan tangan. Hitung 15 detik, lalu kalikan 4.</p>'
+  +'<div class="row"><input id="hr-manual" type="number" class="mono" inputmode="numeric" placeholder="72" style="width:110px">'
+  +'<span class="mut">BPM</span><button class="btn sm" id="hr-timer">Timer 15 detik</button></div>'
+  +'<div id="hr-detik" class="mono mut hide" style="margin-top:8px"></div></div>'
+  +'<div class="lbl" style="margin-bottom:6px">Langkah 2 \u00B7 sensor kamera</div>'
+  +'<div class="viewport" style="padding:14px">'
+  +'<video id="hr-video" playsinline muted style="display:none"></video>'
+  +'<canvas id="hr-grafik" style="width:100%;height:96px;display:block"></canvas>'
+  +'<div class="row" style="margin-top:10px"><div class="sp">'
+  +'<div style="color:rgba(255,255,255,.55);font-size:11px;font-family:var(--fm);letter-spacing:.08em">DETAK</div>'
+  +'<div class="readout" id="hr-angka" style="color:#fff">\u2014\u2014</div></div>'
+  +'<div style="text-align:right"><div style="color:rgba(255,255,255,.55);font-size:11px;font-family:var(--fm)">SISA</div>'
+  +'<div class="mono" id="hr-sisa" style="color:rgba(255,255,255,.8);font-size:14px">15 s</div></div></div></div>'
+  +'<div id="hr-pesan" class="note" style="margin-top:10px">Tutup lensa kamera belakang sekaligus lampu kilat dengan ujung jari. Jangan ditekan, diam selama 15 detik.</div>'
+  +'<button class="btn pri full" id="hr-mulai" style="margin-top:12px">Mulai ukur</button>'
+  +'<button class="btn full" id="hr-manual-saja" style="margin-top:8px">Perangkat saya tanpa lampu kilat</button>'
+  +'<div id="hr-hasil" class="hide" style="margin-top:14px"></div>'
+  +'<div class="card" style="margin-top:16px;border-color:var(--warn)">'
+  +'<div class="lbl" style="margin-bottom:5px;color:var(--warn)">Catatan</div>'
+  +'<p style="margin:0;font-size:14px">SpO2 tidak ikut diukur di sini. Sensor asli membutuhkan cahaya inframerah, '
+  +'sedangkan kamera HP hanya menangkap cahaya tampak.</p></div>';
+}
+
+/* ---------- Pertemuan 5: GPS sungguhan ---------- */
+function simGPS(){
+  return '<h2 style="margin-bottom:4px">Rekam pergerakan</h2>'
+  +'<p class="mut" style="margin:0 0 14px">Prinsipnya sama dengan rompi GPS pemain profesional: posisi dicatat berkali-kali per menit.</p>'
+  +'<div class="viewport" style="padding:12px"><canvas id="gps-kanvas" style="width:100%;height:210px;display:block"></canvas></div>'
+  +'<div class="mini" style="margin-top:12px">'
+  +'<div><b id="g-jarak">0</b><span>meter</span></div>'
+  +'<div><b id="g-rata">0.0</b><span>km/jam rata-rata</span></div>'
+  +'<div><b id="g-puncak">0.0</b><span>km/jam puncak</span></div>'
+  +'<div><b id="g-titik">0</b><span>titik terekam</span></div></div>'
+  +'<div id="g-pesan" class="note" style="margin-top:12px">Sesi minimal 2 menit sambil berjalan atau berlari. Aplikasi harus tetap terbuka selama merekam.</div>'
+  +'<button class="btn pri full" id="g-mulai" style="margin-top:12px">Mulai rekam sesi</button>'
+  +'<button class="btn full hide" id="g-henti" style="margin-top:8px">Hentikan dan simpan</button>'
+  +'<div id="g-hasil" class="hide" style="margin-top:14px"></div>';
+}
+
+/* ---------- Pertemuan 6: sudut sendi ---------- */
+function simPose(){
+  return '<h2 style="margin-bottom:4px">Analisis sudut sendi</h2>'
+  +'<p class="mut" style="margin:0 0 14px">Geser untuk melihat perubahan sudut di tiap fase gerakan.</p>'
+  +'<div class="viewport" style="padding:12px"><canvas id="pose-kanvas" style="width:100%;height:228px;display:block"></canvas></div>'
+  +'<div class="row" style="margin-top:12px"><span class="mut" style="width:56px">Fase</span>'
+  +'<input id="pose-geser" type="range" min="0" max="100" value="0" style="flex:1;padding:0;border:none;box-shadow:none;background:none">'
+  +'<span class="mono" id="pose-nilai" style="width:40px;text-align:right">0%</span></div>'
+  +'<div class="mini" style="margin-top:12px">'
+  +'<div><b id="a-lutut">175\u00B0</b><span>sudut lutut</span></div>'
+  +'<div><b id="a-pinggul">172\u00B0</b><span>sudut pinggul</span></div>'
+  +'<div><b id="a-badan">4\u00B0</b><span>kemiringan badan</span></div></div>'
+  +'<div class="note" style="margin-top:12px">Sudut lutut di bawah 90 derajat saat mendarat menandakan beban besar pada sendi.</div>'
+  +'<button class="btn sig full" id="b-sim-selesai" style="margin-top:12px">Tandai simulasi selesai</button>';
+}
+
+var GALERI={
+ 2:[['\u2632','GPS vest','Rompi berisi modul GPS dan akselerometer. Merekam jarak, kecepatan, dan beban kerja pemain.','#2E9E5B'],
+    ['\u2665','Heart rate strap','Sabuk dada membaca sinyal listrik jantung. Lebih akurat daripada sensor optik di pergelangan.','#DB456A'],
+    ['\u25A3','Force plate','Lantai sensor pengukur gaya tolakan. Menilai kekuatan dan kesimetrisan tungkai.','#3D7BD6'],
+    ['\u25C9','Motion capture','Banyak kamera menangkap penanda di tubuh untuk membangun model gerak tiga dimensi.','#7A6AD9'],
+    ['\u25A4','Kinovea','Perangkat lunak gratis untuk mengukur sudut dan kecepatan dari video latihan.','#00A08A']],
+ 9:[['\u25C9','Klasifikasi gerakan','Model belajar dari ribuan klip untuk mengenali jenis pukulan atau langkah secara otomatis.','#7A6AD9'],
+    ['\u26A0','Prediksi cedera','Riwayat beban latihan dipakai memperkirakan risiko cedera minggu berikutnya.','#DB456A'],
+    ['\u2696','Analisis lawan','Pola serangan lawan diringkas dari puluhan pertandingan sebelumnya.','#3D7BD6'],
+    ['\u270E','Perencanaan latihan','Program disusun ulang otomatis mengikuti respons tubuh atlet.','#2E9E5B']],
+ 10:[['\u25CF','Bola bersensor','Sensor di dalam bola merekam kecepatan, putaran, dan titik sentuh.','#DB6A3D'],
+    ['\u25A4','Raket pintar','Modul di gagang menghitung jumlah dan jenis pukulan tanpa alat tambahan di tubuh.','#3D7BD6'],
+    ['\u25A3','Alat gym terhubung','Beban dan repetisi tercatat otomatis, langsung masuk catatan latihan.','#00A08A'],
+    ['\u25CE','Lapangan bersensor','Sensor tertanam membaca posisi pemain tanpa perangkat yang dipakai.','#7A6AD9']],
+ 11:[['\u25A1','VR pengambilan keputusan','Kiper berlatih membaca situasi berulang kali tanpa lelah fisik.','#9578DB'],
+    ['\u25C9','Rehabilitasi VR','Umpan balik visual membantu mengembalikan pola gerak setelah cedera.','#2E9E5B'],
+    ['\u25A3','AR untuk pelatih','Data pemain muncul di atas tampilan lapangan sungguhan lewat tablet.','#3D7BD6'],
+    ['\u25CE','AR untuk penonton','Statistik dan garis bantu ditumpuk pada siaran langsung.','#DB6A3D']]
+};
+function simGaleri(n){
+  var g=GALERI[n]||GALERI[2];
+  var h='<h2 style="margin-bottom:4px">Kenali teknologinya</h2>'
+   +'<p class="mut" style="margin:0 0 14px">Ketuk tiap kartu untuk membaca cara kerjanya.</p><div class="stack">';
+  g.forEach(function(x,i){
+    h+='<button class="gcard" data-galeri="'+i+'"><span class="ic" style="background:'+x[3]+'22;color:'+x[3]+'">'+x[0]+'</span>'
+     +'<span class="sp"><span style="display:block;font-weight:600;font-size:15px">'+esc(x[1])+'</span>'
+     +'<span class="mut" style="display:block;margin-top:2px">'+esc(x[2])+'</span></span></button>';
+  });
+  return h+'</div><button class="btn sig full" id="b-sim-selesai" style="margin-top:14px">Tandai simulasi selesai</button>';
+}
+
+function simTimeline(){
+  var era=[['1896','Stopwatch dan pita ukur','Hasil dicatat tangan. Perbedaan sepersepuluh detik jadi perdebatan.','#5F6B75'],
+   ['1970','Video analisis','Rekaman ditonton ulang, dianalisis manual berjam-jam.','#3D7BD6'],
+   ['2000','Sensor yang dipakai','Detak jantung dan GPS masuk sesi latihan harian.','#2E9E5B'],
+   ['2015','Data besar','Setiap sentuhan bola tercatat. Analis jadi bagian staf pelatih.','#00A08A'],
+   ['2020','Kecerdasan buatan','Komputer mengenali pola yang tidak terlihat mata manusia.','#7A6AD9']];
+  var h='<h2 style="margin-bottom:4px">Empat gelombang</h2>'
+   +'<p class="mut" style="margin:0 0 16px">Perjalanan teknologi olahraga dari stopwatch sampai kecerdasan buatan.</p><div class="route">';
+  era.forEach(function(e){
+    h+='<div class="node done"><div class="dot mono" style="background:'+e[3]+';border-color:'+e[3]+';font-size:11px">'+e[0].substr(2)+'</div>'
+     +'<div class="pcard"><span class="sp"><span style="display:block;font-weight:600">'+esc(e[1])+'</span>'
+     +'<span class="mut" style="display:block;font-size:13px;margin-top:2px">'+esc(e[2])+'</span></span></div></div>';
+  });
+  return h+'</div><button class="btn sig full" id="b-sim-selesai" style="margin-top:8px">Tandai simulasi selesai</button>';
+}
+
+var DATA_ATLET=[['Andi',8420,72,14],['Bima',9310,68,19],['Cakra',6980,81,9],['Dedi',10240,64,23],['Eka',7650,77,11]];
+function simDash(){
+  return '<h2 style="margin-bottom:4px">Susun dashboard</h2>'
+  +'<p class="mut" style="margin:0 0 14px">Data lima pemain dari satu sesi latihan. Pilih metrik yang paling menolong pelatih.</p>'
+  +'<div class="seg" style="margin-bottom:14px"><button data-metrik="0" class="on">Jarak</button>'
+  +'<button data-metrik="1">Detak</button><button data-metrik="2">Sprint</button></div>'
+  +'<div class="card"><canvas id="dash-kanvas" style="width:100%;height:200px;display:block"></canvas></div>'
+  +'<div id="dash-catatan" class="okbox" style="margin-top:12px"></div>'
+  +'<button class="btn sig full" id="b-sim-selesai" style="margin-top:14px">Tandai simulasi selesai</button>';
+}
+
+var KASUS={
+ 4:['Klub sepak bola daerah membeli 20 GPS vest tahun lalu senilai 180 juta rupiah. Setelah tiga bulan, alat itu tersimpan di lemari. '
+   +'Pelatih kepala mengatakan datanya terlalu rumit. Asisten pelatih yang bisa mengoperasikannya sudah pindah klub. '
+   +'Manajemen menuntut alat itu tetap dipakai karena sudah terlanjur dibeli.',
+   ['Apa akar masalah sebenarnya di kasus ini?','Rekomendasi apa yang bisa dijalankan tanpa biaya tambahan?']],
+ 12:['Pada pertandingan penentuan, gol dianulir setelah VAR menemukan pelanggaran offside sejauh 4 sentimeter. '
+   +'Margin kesalahan sistem pelacakan itu sendiri sekitar 3,5 sentimeter. Pertandingan terhenti 4 menit, '
+   +'dan penonton di stadion tidak diberi tahu alasannya sampai keputusan diumumkan.',
+   ['Apakah keputusan itu dapat disebut adil? Jelaskan.','Apa yang perlu diperbaiki: teknologinya, aturannya, atau cara mengomunikasikannya?']]
+};
+function simKasus(n){
+  var k=KASUS[n]||KASUS[4],t=tema(n);
+  var h='<h2 style="margin-bottom:4px">Studi kasus</h2>'
+   +'<div class="card" style="margin:12px 0 14px;border-left:3px solid '+t.w+'">'
+   +'<p style="margin:0;font-size:14.5px;line-height:1.6">'+esc(k[0])+'</p></div>';
+  k[1].forEach(function(q,i){
+    h+='<div class="lbl" style="margin:14px 0 6px">Pertanyaan '+(i+1)+'</div>'
+     +'<p style="margin:0 0 8px;font-size:14.5px">'+esc(q)+'</p>'
+     +'<textarea class="kasus-isi" data-tanya="'+esc(q)+'" placeholder="Jawabanmu"></textarea>';
+  });
+  return h+'<p id="ks-salah" class="errtx hide"></p>'
+   +'<button class="btn sig full" id="b-kasus" style="margin-top:14px">Kirim analisis</button>';
+}
+
+function simProyek(n){
+  var tahap=[[13,'Proposal','Masalah, solusi, target pengguna'],[14,'Prototipe','Versi sederhana yang bisa dicoba'],[15,'Finalisasi','Etika data dan penyerahan akhir']];
+  var kel=S.kelompok;
+  var h='<h2 style="margin-bottom:4px">Ruang proyek kelompok</h2>'
+   +'<p class="mut" style="margin:0 0 14px">Tiga pertemuan, satu proyek yang sama. Ruangnya sengaja tidak berganti.</p>';
+  if(kel){
+    h+='<div class="card" style="margin-bottom:14px"><div class="lbl" style="margin-bottom:6px">'
+     +esc(kel.nama||('Kelompok '+kel.no))+' \u00B7 Kelas '+esc(kel.kelas)+'</div>'
+     +(kel.judul?'<div style="font-size:14.5px;margin-bottom:6px">'+esc(kel.judul)+'</div>':'')
+     +'<div class="mut" style="font-size:13px">'+kel.anggota.map(function(a){
+       return esc(a.nama)+(a.peran==='Ketua'?' (ketua)':'')}).join(' \u00B7 ')+'</div></div>';
+  }else{
+    h+='<div class="note" style="margin-bottom:14px">Kelompok Anda belum didaftarkan dosen di tab Kelompok.</div>';
+  }
+  h+='<div class="list" style="margin-bottom:14px">';
+  tahap.forEach(function(t){
+    var st=t[0]<n?'selesai':t[0]===n?'sedang dikerjakan':'menunggu';
+    h+='<div class="item"><span class="chip">P'+t[0]+'</span><span class="sp">'
+     +'<span style="display:block;font-weight:500">'+t[1]+'</span>'
+     +'<span class="mut" style="font-size:12.5px">'+t[2]+'</span></span>'
+     +'<span class="mut" style="font-size:12px">'+st+'</span></div>';
+  });
+  return h+'</div><div class="lbl" style="margin-bottom:6px">Catatan kemajuan minggu ini</div>'
+   +'<textarea id="proyek-isi" placeholder="Apa yang sudah dikerjakan, apa kendalanya"></textarea>'
+   +'<p id="proyek-salah" class="errtx hide"></p>'
+   +'<button class="btn sig full" id="b-proyek" style="margin-top:12px">Simpan catatan</button>';
+}
+
+function simUjian(n,p){
+  var h='<h2 style="margin-bottom:4px">'+(n===8?'Ujian Tengah Semester':'Ujian Akhir Semester')+'</h2>'
+   +'<p class="mut" style="margin:0 0 14px">Bobot '+p.bobot+' persen dari nilai akhir.</p>';
+  if(!p.soal||!p.soal.length){
+    return h+'<div class="card" style="margin-bottom:14px"><div class="lbl" style="margin-bottom:6px">Ketentuan kelas '+esc(S.kelas)+'</div>'
+     +'<p style="margin:0;font-size:14.5px">'+esc(p.tugas||'Belum diisi dosen.')+'</p></div>'
+     +'<div class="note">Ujian ini bukan pilihan ganda. Unggah berkasnya lewat menu Tugas pada jadwal ujian.</div>';
+  }
+  if(prog(n).sim)return h+'<div class="okbox">Anda sudah mengerjakan ujian ini. Nilainya dapat dilihat di menu Nilai.</div>';
+  return h+'<div class="row" style="margin-bottom:12px;flex-wrap:wrap;gap:7px">'
+   +'<span class="chip">'+p.soal.length+' soal</span><span class="chip">Sekali kerjakan</span></div>'
+   +'<div id="ujian-kotak"></div><div id="ujian-hasil" class="hide" style="margin-top:14px"></div>';
+}
+
+/* =====================================================================
+   MENU DOSEN
+   ===================================================================== */
+function renderDosen(){
+  var v;
+  switch(S.layar){
+    case 'dPintu':v=vPintuDosen();break;
+    case 'dPanel':v=vPanelDosen();break;
+    case 'dNilai':v=vNilaiDosen();break;
+    case 'dKelas':v=vKelasDosen();break;
+    case 'dRekap':v=vRekapDosen();break;
+    default:v=vPintuDosen();
+  }
+  R.innerHTML=v;
+  TB.innerHTML=S.tiket?('<div class="tabs">'
+   +'<button class="tab '+(S.layar==='dPanel'?'on':'')+'" data-dtab="dPanel"><i>\u2630</i>Tindakan</button>'
+   +'<button class="tab '+(S.layar==='dKelas'?'on':'')+'" data-dtab="dKelas"><i>\u25A1</i>Kelas</button>'
+   +'<button class="tab '+(S.layar==='dRekap'?'on':'')+'" data-dtab="dRekap"><i>\u25A3</i>Rekap</button></div>'):'';
+  document.documentElement.style.setProperty('--accent','#12161C');
+  ikat();
+}
+
+function vPintuDosen(){
+  return '<div class="pad" style="padding-top:60px"><h1>Masuk dosen</h1>'
+  +'<p class="mut" style="margin:8px 0 22px">Kata sandi diperiksa di server, tidak disimpan di HP.</p>'
+  +'<div class="stack"><input id="d-sandi" type="password" placeholder="Kata sandi dosen" autocomplete="current-password">'
+  +'<p id="d-salah" class="errtx hide"></p>'
+  +'<button class="btn pri full" id="b-dosen-masuk">Masuk</button>'
+  +'<button class="btn full" id="b-kembali-mhs">Kembali</button></div></div>';
+}
+
+function vPanelDosen(){
+  var h='<div class="hd"><div class="ttl">Panel dosen</div><span class="tag mono">5 kelas</span></div><div class="pad">';
+  if(!S.ringkasan)return h+vMuat('Mengumpulkan dari lima kelas')+'</div>';
+  var d=S.ringkasan;
+  h+='<h2 style="margin-bottom:4px">Perlu tindakan</h2>'
+   +'<p class="mut" style="margin:0 0 16px">Dikumpulkan dari kelima kelas sekaligus.</p><div class="stack">';
+  if(d.perluDinilai){
+    var kelasnya=Object.keys(d.perluDinilaiPerKelas||{}).join(', ');
+    h+=kartuDosen('\u270E',d.perluDinilai+' tugas menunggu dinilai',kelasnya?('kelas '+kelasnya):'','var(--warn)','var(--warn-bg)','Nilai','dNilai');
+  }
+  if(d.belumPresensi)
+    h+=kartuDosen('\u26A0',d.belumPresensi+' mahasiswa belum presensi','pertemuan yang sedang berjalan','var(--err)','var(--err-bg)','Lihat','dKelas');
+  if(d.refleksiBaru)
+    h+=kartuDosen('\u25B6',d.refleksiBaru+' refleksi baru masuk','belum dibaca','var(--txt2)','var(--paper)','Lihat','dKelas');
+  (d.siapDibuka||[]).forEach(function(x){
+    h+=kartuDosen('\u25C9','Kelas '+x.kelas+' siap membuka pertemuan '+x.berikutnya,'semua mahasiswa sudah tuntas',
+      'var(--signal)','var(--signal-bg)','Buka','buka:'+x.kelas);
+  });
+  if(!d.perluDinilai&&!d.belumPresensi&&!d.refleksiBaru&&!(d.siapDibuka||[]).length)
+    h+='<div class="okbox">Tidak ada yang perlu dikerjakan saat ini.</div>';
+  h+='</div><div class="lbl" style="margin:22px 0 8px">Posisi tiap kelas</div><div class="list">';
+  d.kelas.forEach(function(k){
+    h+='<div class="item"><span class="chip">Kelas '+k.kode+'</span>'
+     +'<span class="sp" style="font-size:14px">Pertemuan '+k.pertemuanTerbuka+'</span>'
+     +'<span class="mut mono" style="font-size:12.5px">'+k.sudahPresensi+'/'+k.jumlahMahasiswa+' hadir</span></div>';
+  });
+  h+='</div><button class="btn full" id="b-presentasi" style="margin-top:18px">\u25A3 Mode presentasi</button>'
+   +'<p class="mut" style="font-size:12px;margin-top:8px">Teks besar untuk diproyeksikan. Navigasi dengan panah kiri dan kanan.</p>'
+   +'<button class="btn full" id="b-keluar-dosen" style="margin-top:14px">Keluar</button>';
+  return h+'</div>';
+}
+function kartuDosen(ik,judul,sub,warna,latar,aksi,tuju){
+  return '<div class="card row" style="padding:13px 14px">'
+  +'<span style="width:38px;height:38px;border-radius:11px;background:'+latar+';color:'+warna+';display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">'+ik+'</span>'
+  +'<span class="sp"><span style="display:block;font-weight:500;font-size:14.5px">'+esc(judul)+'</span>'
+  +(sub?'<span class="mut" style="display:block;font-size:12.5px">'+esc(sub)+'</span>':'')+'</span>'
+  +'<button class="btn sm" data-daksi="'+tuju+'">'+aksi+'</button></div>';
+}
+
+function vNilaiDosen(){
+  var h='<div class="hd"><button class="ib" data-dback="dPanel">\u2190</button><div class="ttl">Menilai tugas</div></div><div class="pad">';
+  if(!S.antri)return h+vMuat('Mengambil tugas')+'</div>';
+  if(!S.antri.length)return h+'<div class="okbox">Semua tugas sudah dinilai.</div></div>';
+  var t=S.antri[0];
+  h+='<div class="card" style="margin-bottom:14px"><div class="row" style="margin-bottom:10px">'
+   +'<div style="width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600">'+esc(t.nama.charAt(0))+'</div>'
+   +'<div class="sp"><div style="font-weight:600">'+esc(t.nama)+'</div>'
+   +'<div class="mut mono" style="font-size:12.5px">'+esc(t.nim)+' \u00B7 Kelas '+esc(t.kelas)+' \u00B7 P'+t.pertemuan+'</div></div>'
+   +'<span class="chip">sisa '+S.antri.length+'</span></div>'
+   +'<div class="lbl" style="margin:12px 0 6px">Jawaban</div>'
+   +'<p style="margin:0;font-size:14px;line-height:1.6;white-space:pre-wrap">'+esc(t.jawaban||'(tidak ada teks)')+'</p>'
+   +(t.berkas?'<div style="margin-top:10px"><a class="btn sm" href="'+esc(t.berkas)+'" target="_blank" rel="noopener">Buka berkas</a></div>':'')
+   +'<div class="mut" style="font-size:12px;margin-top:8px">Dikumpulkan '+esc(t.waktu)+'</div></div>'
+   +'<div class="lbl" style="margin-bottom:6px">Nilai</div>'
+   +'<div class="row" style="margin-bottom:12px;flex-wrap:wrap;gap:8px">'
+   +'<input id="d-nilai" type="number" class="mono" inputmode="numeric" value="85" style="width:96px">'
+   +'<button class="btn sm" data-cepat="100">100</button><button class="btn sm" data-cepat="85">85</button>'
+   +'<button class="btn sm" data-cepat="70">70</button></div>'
+   +'<div class="lbl" style="margin-bottom:6px">Komentar cepat</div>'
+   +'<div class="row" style="flex-wrap:wrap;gap:7px;margin-bottom:10px">'
+   +['Analisis sudah tepat','Kurang data pendukung','Kaitkan dengan teori','Rapi dan lengkap'].map(function(c){
+     return '<button class="btn sm" data-komen="'+esc(c)+'">'+esc(c)+'</button>'}).join('')+'</div>'
+   +'<textarea id="d-komentar" placeholder="Komentar untuk mahasiswa"></textarea>'
+   +'<div class="row" style="margin-top:14px;gap:10px">'
+   +'<button class="btn sp" id="d-lewati">Lewati</button>'
+   +'<button class="btn pri sp" id="d-simpan">Simpan &amp; lanjut</button></div>';
+  return h+'</div>';
+}
+
+function vKelasDosen(){
+  var k=S.kelasPilih||'A';
+  var h='<div class="hd"><div class="ttl">Kelas</div></div><div class="pad">'
+   +'<div class="seg" style="margin-bottom:16px">'
+   +['A','B','C','D','E'].map(function(x){return '<button data-kls="'+x+'" class="'+(k===x?'on':'')+'">'+x+'</button>'}).join('')
+   +'</div>';
+  var info=null;
+  if(S.ringkasan)S.ringkasan.kelas.forEach(function(x){if(x.kode===k)info=x});
+  if(info){
+    h+='<div class="card" style="margin-bottom:14px"><div class="row"><div class="sp">'
+     +'<div class="lbl">Kelas '+k+'</div><h2 style="margin:2px 0 0">Pertemuan '+info.pertemuanTerbuka+'</h2>'
+     +'<div class="mut" style="font-size:13px">'+info.jumlahMahasiswa+' mahasiswa \u00B7 '+info.sudahPresensi+' sudah presensi</div></div>'
+     +'<button class="btn sm" data-daksi="buka:'+k+'">Buka P'+(info.pertemuanTerbuka+1)+'</button></div></div>';
+  }
+  h+='<div class="lbl" style="margin-bottom:8px">Presensi pertemuan berjalan</div><div id="kotak-presensi">'+vMuat('Mengambil daftar')+'</div>';
+  return h+'</div>';
+}
+
+function vRekapDosen(){
+  var k=S.kelasPilih||'A';
+  var h='<div class="hd"><div class="ttl">Rekap nilai</div></div><div class="pad">'
+   +'<div class="seg" style="margin-bottom:16px">'
+   +['A','B','C','D','E'].map(function(x){return '<button data-rkls="'+x+'" class="'+(k===x?'on':'')+'">'+x+'</button>'}).join('')
+   +'</div><div id="kotak-rekap">'+vMuat('Menghitung')+'</div>';
+  return h+'</div>';
+}
+
+/* ---------- Mode presentasi ---------- */
+var MP={n:1,i:0};
+function bukaPresentasi(n){MP.n=n||1;MP.i=0;gambarPresentasi();document.addEventListener('keydown',tombolPresentasi)}
+function tombolPresentasi(e){
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();geserPresentasi(1)}
+  else if(e.key==='ArrowLeft'){e.preventDefault();geserPresentasi(-1)}
+  else if(e.key==='Escape')tutupPresentasi();
+}
+function tutupPresentasi(){OV.innerHTML='';document.removeEventListener('keydown',tombolPresentasi)}
+function geserPresentasi(d){
+  var p=P(MP.n);if(!p)return;
+  MP.i+=d;
+  if(MP.i<0){if(MP.n>1){MP.n--;var q=P(MP.n);MP.i=Math.max(0,(q?q.materi.length:1)-1)}else MP.i=0}
+  if(MP.i>=p.materi.length){if(MP.n<16){MP.n++;MP.i=0}else MP.i=Math.max(0,p.materi.length-1)}
+  gambarPresentasi();
+}
+function gambarPresentasi(){
+  var p=P(MP.n);if(!p)return;
+  var t=tema(MP.n),m=p.materi[MP.i];
+  if(!m){OV.innerHTML='<div class="pres"><h1>Pertemuan '+MP.n+'</h1><p>'+esc(p.topik)+'</p>'
+   +'<div class="foot"><button id="p-mundur">\u2190</button><button id="p-maju">\u2192</button>'
+   +'<span class="sp">materi belum diisi</span><button id="p-tutup" style="width:auto;padding:0 16px;font-family:var(--fb)">Tutup</button></div></div>';}
+  else{
+    OV.innerHTML='<div class="pres">'
+     +'<div style="font-family:var(--fm);font-size:13px;letter-spacing:.1em;color:'+t.w+';margin-bottom:18px">'
+     +'PERTEMUAN '+MP.n+' \u00B7 '+esc(p.topik.toUpperCase())+'</div>'
+     +'<h1>'+esc(m.h)+'</h1><ul>'+m.b.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'
+     +'<div class="foot"><button id="p-mundur">\u2190</button><button id="p-maju">\u2192</button>'
+     +'<span class="sp">'+(MP.i+1)+' / '+p.materi.length+'</span>'
+     +(p.slide&&p.slide.id?'<button id="p-slide" style="width:auto;padding:0 16px;font-family:var(--fb)">Buka slide</button>':'')
+     +'<button id="p-tutup" style="width:auto;padding:0 16px;font-family:var(--fb)">Tutup</button></div></div>';
+  }
+  document.getElementById('p-mundur').onclick=function(){geserPresentasi(-1)};
+  document.getElementById('p-maju').onclick=function(){geserPresentasi(1)};
+  document.getElementById('p-tutup').onclick=tutupPresentasi;
+  var ps=document.getElementById('p-slide');
+  if(ps)ps.onclick=function(){
+    window.open(p.slide.jenis==='slides'
+      ? 'https://docs.google.com/presentation/d/'+p.slide.id+'/present'
+      : 'https://drive.google.com/file/d/'+p.slide.id+'/view','_blank');
+  };
+}
+
+/* =====================================================================
+   PENGIKAT TOMBOL
+   ===================================================================== */
+function pada(sel,ev,fn){var e=document.querySelectorAll(sel);for(var i=0;i<e.length;i++)e[i].addEventListener(ev,fn)}
+function satu(id){return document.getElementById(id)}
+function sibuk(tombol,teks){if(!tombol)return function(){};var asli=tombol.textContent;tombol.disabled=true;tombol.textContent=teks;
+  return function(){tombol.disabled=false;tombol.textContent=asli}}
+function salah(id,pesan){var e=satu(id);if(!e)return;e.textContent=pesan;e.classList.remove('hide')}
+
+function ikat(){
+  pada('[data-tab]','click',function(){S.tab=this.dataset.tab;S.layar=this.dataset.tab;
+    if(this.dataset.tab==='nilai')ambilNilai();render()});
+  pada('[data-portal]','click',function(){go('portal',+this.dataset.portal)});
+  pada('[data-back]','click',function(){go(this.dataset.back)});
+  pada('[data-buka]','click',function(){
+    var k=this.dataset.buka;
+    go(k==='sim'?'sim':k==='materi'?'materi':k==='refleksi'?'refleksi':k==='tugas'?'tugas':'presensi');
+  });
+  pada('[data-kunci]','click',function(){alert('Bagian ini terbuka setelah pertemuan berlangsung.')});
+  pada('[data-galeri]','click',function(){this.style.borderColor='var(--signal)'});
+
+  var m=satu('b-masuk');if(m)m.onclick=lakukanDaftar;
+  var pd=satu('b-pintu-dosen');if(pd)pd.onclick=function(){S.peran='dosen';S.layar='dPintu';render()};
+  var km=satu('b-kembali-mhs');if(km)km.onclick=function(){S.peran='mhs';S.layar=S.masuk?'peta':'daftar';render()};
+  var kl=satu('b-keluar');if(kl)kl.onclick=function(){
+    Simpan.hapus('sesi');S.masuk=false;S.konten=null;S.layar='daftar';render()};
+  var sg=satu('b-segarkan');if(sg)sg.onclick=function(){
+    var lepas=sibuk(sg,'Memuat...');ambilKonten(true).then(function(){lepas();alert('Materi diperbarui.')})};
+
+  var sp=satu('b-slide-penuh');
+  if(sp)sp.onclick=function(){
+    var f=satu('bingkai-slide');if(!f)return;
+    var minta=f.requestFullscreen||f.webkitRequestFullscreen||f.webkitEnterFullscreen;
+    if(minta)minta.call(f);else window.open(f.src.replace('/embed','/edit'),'_blank');
+  };
+
+  var bm=satu('b-materi');if(bm)bm.onclick=function(){
+    var lepas=sibuk(bm,'Menyimpan...');
+    gudang('selesaiMateri',{nim:S.nim,pertemuan:S.portal},{antre:true}).then(function(r){
+      lepas();if(r.ok){tandaiLokal(S.portal,'materi');simpanSesi();go('portal')}else alert(r.pesan)});
+  };
+
+  ikatRefleksi();ikatTugas();ikatPresensi();ikatSim();ikatDosen();
+}
+
+function ikatRefleksi(){
+  var b=satu('b-refleksi');if(!b)return;
+  var t=satu('ref-isi');
+  t.oninput=function(){satu('ref-hitung').textContent=t.value.trim().length+' karakter';
+    satu('ref-salah').classList.add('hide')};
+  b.onclick=function(){
+    if(t.value.trim().length<40)return salah('ref-salah','Refleksi masih terlalu pendek, minimal 40 karakter.');
+    var lepas=sibuk(b,'Mengirim...');
+    gudang('kirimRefleksi',{nim:S.nim,pertemuan:S.portal,jawaban:t.value.trim()},{antre:true}).then(function(r){
+      lepas();if(r.ok){tandaiLokal(S.portal,'refleksi');simpanSesi();go('portal')}else salah('ref-salah',r.pesan)});
+  };
+}
+
+function ikatTugas(){
+  var b=satu('b-tugas');if(!b)return;
+  var berkasData=null;
+  satu('b-pilih-berkas').onclick=function(){satu('tg-berkas').click()};
+  satu('tg-berkas').onchange=function(){
+    var f=this.files[0];if(!f)return;
+    if(f.size>8*1024*1024)return salah('tg-salah','Berkas terlalu besar. Maksimal 8 MB.');
+    var fr=new FileReader();
+    fr.onload=function(){berkasData={isi:fr.result,nama:f.name,tipe:f.type||'application/octet-stream'};
+      var n=satu('tg-nama');n.innerHTML='<span class="chip">'+esc(f.name)+'</span>';n.classList.remove('hide');
+      satu('tg-salah').classList.add('hide')};
+    fr.readAsDataURL(f);
+  };
+  b.onclick=function(){
+    var teks=satu('tg-isi').value.trim();
+    if(teks.length<20&&!berkasData)return salah('tg-salah','Isi jawaban atau lampirkan berkas terlebih dahulu.');
+    var lepas=sibuk(b,'Mengirim...');
+    var kirim={nim:S.nim,pertemuan:S.portal,jawaban:teks};
+    if(berkasData){kirim.berkas=berkasData.isi;kirim.namaBerkas=berkasData.nama;kirim.tipeBerkas=berkasData.tipe}
+    gudang('kirimTugas',kirim,{antre:!berkasData}).then(function(r){
+      lepas();if(r.ok){tandaiLokal(S.portal,'tugas');simpanSesi();go('portal')}else salah('tg-salah',r.pesan)});
+  };
+}
+
+/* ---------- Presensi: kamera dan tanda tangan ---------- */
+function ikatPresensi(){
+  var kanvas=satu('ttd');if(!kanvas)return;
+  var fotoData=null,aliran=null,adaTtd=false;
+
+  satu('b-nyala-kamera').onclick=function(){
+    var tb=this,lepas=sibuk(tb,'Menyalakan...');
+    navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640}}}).then(function(s){
+      aliran=s;
+      var kotak=satu('kotak-kamera');
+      kotak.innerHTML='<video id="v-presensi" playsinline autoplay muted style="width:100%;display:block"></video>';
+      var v=satu('v-presensi');v.srcObject=s;
+      lepas();satu('b-jepret').disabled=false;tb.textContent='Kamera menyala';tb.disabled=true;
+    }).catch(function(e){
+      lepas();salah('pr-salah','Kamera tidak dapat diakses. Pastikan izin kamera diberikan. ('+e.name+')');
+    });
+  };
+
+  satu('b-jepret').onclick=function(){
+    var v=satu('v-presensi');if(!v)return;
+    var k=document.createElement('canvas');
+    var lebar=320,tinggi=Math.round(v.videoHeight/v.videoWidth*lebar)||240;
+    k.width=lebar;k.height=tinggi;
+    k.getContext('2d').drawImage(v,0,0,lebar,tinggi);
+    fotoData=k.toDataURL('image/jpeg',0.6);
+    if(aliran){aliran.getTracks().forEach(function(t){t.stop()});aliran=null}
+    satu('kotak-kamera').innerHTML='<img src="'+fotoData+'" alt="Foto presensi" style="width:100%;display:block">';
+    this.textContent='Foto tersimpan';this.disabled=true;
+    satu('b-nyala-kamera').textContent='Ambil ulang';satu('b-nyala-kamera').disabled=false;
+    satu('pr-salah').classList.add('hide');
+  };
+
+  // Kanvas tanda tangan
+  var lebar=kanvas.getBoundingClientRect().width;
+  kanvas.width=lebar*2;kanvas.height=240;
+  var kt=kanvas.getContext('2d');kt.scale(2,2);
+  kt.strokeStyle='#12161C';kt.lineWidth=2.2;kt.lineCap='round';kt.lineJoin='round';
+  var gambar=false;
+  function posisi(e){var b=kanvas.getBoundingClientRect(),t=e.touches?e.touches[0]:e;
+    return [t.clientX-b.left,t.clientY-b.top]}
+  function mulai(e){e.preventDefault();gambar=true;adaTtd=true;var p=posisi(e);kt.beginPath();kt.moveTo(p[0],p[1]);
+    satu('pr-salah').classList.add('hide')}
+  function geser(e){if(!gambar)return;e.preventDefault();var p=posisi(e);kt.lineTo(p[0],p[1]);kt.stroke()}
+  function henti(){gambar=false}
+  ['mousedown','touchstart'].forEach(function(t){kanvas.addEventListener(t,mulai,{passive:false})});
+  ['mousemove','touchmove'].forEach(function(t){kanvas.addEventListener(t,geser,{passive:false})});
+  ['mouseup','mouseleave','touchend'].forEach(function(t){kanvas.addEventListener(t,henti)});
+  satu('b-hapus-ttd').onclick=function(){kt.clearRect(0,0,kanvas.width,kanvas.height);adaTtd=false};
+
+  satu('b-presensi').onclick=function(){
+    if(!fotoData)return salah('pr-salah','Ambil foto wajah terlebih dahulu.');
+    if(!adaTtd)return salah('pr-salah','Tanda tangan dulu di kotak.');
+    var b=this,lepas=sibuk(b,'Mengirim...');
+    var kecil=document.createElement('canvas');kecil.width=320;kecil.height=120;
+    kecil.getContext('2d').drawImage(kanvas,0,0,320,120);
+    var ttdData=kecil.toDataURL('image/jpeg',0.6);
+
+    var lanjut=function(lat,lng){
+      gudang('presensi',{nim:S.nim,pertemuan:S.portal,foto:fotoData,ttd:ttdData,lat:lat,lng:lng}).then(function(r){
+        lepas();
+        if(r.ok){tandaiLokal(S.portal,'presensi');simpanSesi();alert(r.pesan);go('portal')}
+        else salah('pr-salah',r.pesan);
+      });
+    };
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        function(p){lanjut(p.coords.latitude.toFixed(5),p.coords.longitude.toFixed(5))},
+        function(){lanjut('','')},{timeout:6000,enableHighAccuracy:false});
+    }else lanjut('','');
+  };
+}
+
+/* =====================================================================
+   MESIN SIMULASI
+   ===================================================================== */
+function ikatSim(){
+  if(satu('hr-grafik'))mesinHR();
+  if(satu('gps-kanvas'))mesinGPS();
+  if(satu('pose-kanvas'))mesinPose();
+  if(satu('dash-kanvas'))mesinDash();
+  if(satu('ujian-kotak'))mesinUjian();
+
+  var bs=satu('b-sim-selesai');
+  if(bs)bs.onclick=function(){simSelesai(null,bs)};
+
+  var bk=satu('b-kasus');
+  if(bk)bk.onclick=function(){
+    var isian=document.querySelectorAll('.kasus-isi'),jawaban=[],lengkap=true;
+    for(var i=0;i<isian.length;i++){
+      if(isian[i].value.trim().length<25)lengkap=false;
+      jawaban.push({tanya:isian[i].dataset.tanya,isi:isian[i].value.trim()});
+    }
+    if(!lengkap)return salah('ks-salah','Kedua pertanyaan perlu dijawab, minimal 25 karakter.');
+    simSelesai({jenis:'Studi kasus',jawaban:jawaban},bk);
+  };
+
+  var bp=satu('b-proyek');
+  if(bp)bp.onclick=function(){
+    var t=satu('proyek-isi').value.trim();
+    if(t.length<25)return salah('proyek-salah','Catatan terlalu pendek, minimal 25 karakter.');
+    simSelesai({jenis:'Catatan proyek',jawaban:[{tanya:'Catatan kemajuan',isi:t}]},bp);
+  };
+}
+
+function simSelesai(muatan,tombol){
+  var lepas=sibuk(tombol,'Menyimpan...');
+  var kirim=Object.assign({nim:S.nim,pertemuan:S.portal},muatan||{});
+  return gudang('kirimSimulasi',kirim,{antre:true}).then(function(r){
+    lepas();
+    if(r.ok){tandaiLokal(S.portal,'sim');simpanSesi();go('portal')}
+    else alert(r.pesan);
+    return r;
+  });
+}
+
+/* ---------- PPG sungguhan: kamera + lampu kilat ---------- */
+function mesinHR(){
+  var kanvas=satu('hr-grafik'),video=satu('hr-video');
+  var lebar=kanvas.getBoundingClientRect().width;
+  kanvas.width=lebar*2;kanvas.height=192;
+  var kt=kanvas.getContext('2d');kt.scale(2,2);
+  var W=lebar,H=96;
+  var aliran=null,jalan=false,sinyal=[],waktuMulai=0,timerId=null,bpmAkhir=0;
+  var kecil=document.createElement('canvas');kecil.width=64;kecil.height=48;
+  var kk=kecil.getContext('2d',{willReadFrequently:true});
+
+  function latar(){
+    kt.clearRect(0,0,W,H);
+    kt.strokeStyle='rgba(255,255,255,.10)';kt.lineWidth=1;
+    for(var i=1;i<4;i++){kt.beginPath();kt.moveTo(0,H/4*i);kt.lineTo(W,H/4*i);kt.stroke()}
+  }
+  latar();
+  kt.strokeStyle='rgba(255,255,255,.3)';kt.beginPath();kt.moveTo(0,H/2);kt.lineTo(W,H/2);kt.stroke();
+
+  satu('hr-timer').onclick=function(){
+    var b=this,n=15,d=satu('hr-detik');
+    d.classList.remove('hide');b.disabled=true;
+    var iv=setInterval(function(){n--;d.textContent='Hitung terus... '+n+' detik';
+      if(n<=0){clearInterval(iv);d.textContent='Selesai. Kalikan 4, lalu masukkan hasilnya.';b.disabled=false}},1000);
+  };
+
+  satu('hr-manual-saja').onclick=function(){
+    var man=Number(satu('hr-manual').value);
+    if(!man)return alert('Isi dulu hasil hitungan manual Anda.');
+    var lepas=sibuk(this,'Menyimpan...');
+    gudang('kirimSimulasi',{nim:S.nim,pertemuan:S.portal,
+      pengukuran:{jenis:'Detak jantung',manual:man,satuan:'BPM',alat:'Manual'}},{antre:true}).then(function(r){
+      lepas();
+      var kotak=satu('hr-hasil');kotak.className='';
+      var rata=r.rataKelas;
+      kotak.innerHTML='<div class="card"><div class="lbl" style="margin-bottom:8px">Perbandingan dengan kelas</div>'
+       +'<div class="mini"><div><b>'+man+'</b><span>hitungan Anda</span></div>'
+       +(rata?'<div><b>'+rata.nilai+'</b><span>rata-rata sensor sekelas</span></div>'
+             +'<div><b>'+Math.abs(rata.nilai-man)+'</b><span>selisih BPM</span></div>':'')+'</div>'
+       +'<p class="mut" style="margin:10px 0 0;font-size:13.5px">'
+       +(rata?'Angka pembanding ini berasal dari '+rata.jumlahData+' pengukuran sensor teman sekelas Anda, bukan data karangan.'
+             :'Belum ada teman sekelas yang mengukur dengan sensor. Coba lagi nanti untuk melihat pembandingnya.')
+       +'</p><button class="btn sig full" id="b-sim-selesai2" style="margin-top:12px">Tandai simulasi selesai</button></div>';
+      satu('b-sim-selesai2').onclick=function(){simSelesai(null,this)};
+    });
+  };
+
+  satu('hr-mulai').onclick=function(){
+    if(jalan)return;
+    var b=this,lepas=sibuk(b,'Menyiapkan...');
+    navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:320},height:{ideal:240}}})
+    .then(function(s){
+      aliran=s;video.srcObject=s;video.play();
+      var jalur=s.getVideoTracks()[0];
+      var kemampuan=jalur.getCapabilities?jalur.getCapabilities():{};
+      if(kemampuan.torch){
+        return jalur.applyConstraints({advanced:[{torch:true}]}).then(function(){return true}).catch(function(){return false});
+      }
+      return false;
+    }).then(function(adaLampu){
+      lepas();
+      if(!adaLampu)satu('hr-pesan').innerHTML='Lampu kilat tidak dapat dinyalakan pada perangkat ini. '
+        +'Hasil bisa kurang stabil. Bila gagal, gunakan tombol di bawah untuk mencatat hitungan manual saja.';
+      mulaiUkur();
+    }).catch(function(e){
+      lepas();
+      satu('hr-pesan').className='errbox';
+      satu('hr-pesan').textContent='Kamera tidak dapat diakses ('+e.name+'). Gunakan tombol hitungan manual di bawah.';
+    });
+  };
+
+  function mulaiUkur(){
+    jalan=true;sinyal=[];waktuMulai=Date.now();
+    satu('hr-mulai').disabled=true;satu('hr-mulai').textContent='Mengukur...';
+    timerId=setInterval(ambilBingkai,40);
+  }
+
+  function ambilBingkai(){
+    if(video.readyState<2)return;
+    kk.drawImage(video,0,0,64,48);
+    // Ambil bagian tengah gambar sebagai daerah pengamatan
+    var d=kk.getImageData(20,14,24,20).data;
+    var hijau=0,merah=0,n=0;
+    for(var i=0;i<d.length;i+=4){merah+=d[i];hijau+=d[i+1];n++}
+    hijau/=n;merah/=n;
+    var detik=(Date.now()-waktuMulai)/1000;
+    sinyal.push({t:detik,v:hijau,m:merah});
+
+    gambarSinyal();
+    satu('hr-sisa').textContent=Math.max(0,Math.ceil(15-detik))+' s';
+
+    if(detik>4){
+      var b=hitungBPM(sinyal);
+      if(b){bpmAkhir=b;satu('hr-angka').textContent=b}
+    }
+    if(detik>=15){selesaiUkur()}
+  }
+
+  function gambarSinyal(){
+    latar();
+    var tampil=sinyal.slice(-Math.floor(W/2));
+    if(tampil.length<3)return;
+    var nilai=tampil.map(function(x){return x.v});
+    var min=Math.min.apply(null,nilai),max=Math.max.apply(null,nilai);
+    var rentang=Math.max(1,max-min);
+    kt.strokeStyle='#FF5A36';kt.lineWidth=1.8;kt.beginPath();
+    tampil.forEach(function(x,i){
+      var px=i*2,py=H-8-((x.v-min)/rentang)*(H-16);
+      i?kt.lineTo(px,py):kt.moveTo(px,py);
+    });
+    kt.stroke();
+  }
+
+  /* Membuang tren lambat, lalu mencari puncak untuk menghitung BPM. */
+  function hitungBPM(data){
+    if(data.length<80)return 0;
+    var v=data.map(function(x){return x.v});
+    var t=data.map(function(x){return x.t});
+    var jendela=12,rata=[];
+    for(var i=0;i<v.length;i++){
+      var a=Math.max(0,i-jendela),b=Math.min(v.length-1,i+jendela),s=0,n=0;
+      for(var j=a;j<=b;j++){s+=v[j];n++}
+      rata.push(v[i]-s/n);
+    }
+    var puncak=[],jarakMin=0.34;
+    for(var i=2;i<rata.length-2;i++){
+      if(rata[i]>rata[i-1]&&rata[i]>rata[i-2]&&rata[i]>=rata[i+1]&&rata[i]>=rata[i+2]&&rata[i]>0){
+        if(!puncak.length||t[i]-t[puncak[puncak.length-1]]>jarakMin)puncak.push(i);
+      }
+    }
+    if(puncak.length<4)return 0;
+    var jeda=[];
+    for(var i=1;i<puncak.length;i++)jeda.push(t[puncak[i]]-t[puncak[i-1]]);
+    jeda.sort(function(a,b){return a-b});
+    var tengah=jeda[Math.floor(jeda.length/2)];
+    var bpm=Math.round(60/tengah);
+    return (bpm>=40&&bpm<=200)?bpm:0;
+  }
+
+  function selesaiUkur(){
+    clearInterval(timerId);jalan=false;
+    if(aliran){aliran.getTracks().forEach(function(t){t.stop()});aliran=null}
+    satu('hr-mulai').disabled=false;satu('hr-mulai').textContent='Ukur lagi';
+
+    if(!bpmAkhir){
+      satu('hr-pesan').className='errbox';
+      satu('hr-pesan').textContent='Sinyal terlalu berisik untuk dibaca. Pastikan jari menutup penuh lensa dan tidak bergerak, lalu coba lagi.';
+      return;
+    }
+    satu('hr-pesan').className='note';
+    satu('hr-pesan').textContent='Pengukuran selesai.';
+    var man=Number(satu('hr-manual').value)||0;
+    var lepas=sibuk(satu('hr-mulai'),'Menyimpan...');
+    gudang('kirimSimulasi',{nim:S.nim,pertemuan:S.portal,
+      pengukuran:{jenis:'Detak jantung',manual:man||'',sensor:bpmAkhir,satuan:'BPM',
+                  alat:/android/i.test(navigator.userAgent)?'Android':'Lainnya'}},{antre:true})
+    .then(function(r){
+      lepas();
+      var kotak=satu('hr-hasil');kotak.className='';
+      var selisih=man?Math.abs(bpmAkhir-man):null;
+      kotak.innerHTML='<div class="card"><div class="lbl" style="margin-bottom:8px">Perbandingan</div>'
+       +'<div class="mini">'+(man?'<div><b>'+man+'</b><span>manual</span></div>':'')
+       +'<div><b>'+bpmAkhir+'</b><span>sensor</span></div>'
+       +(selisih!==null?'<div><b>'+selisih+'</b><span>selisih BPM</span></div>':'')+'</div>'
+       +'<p class="mut" style="margin:10px 0 0;font-size:13.5px">'
+       +(selisih===null?'Isi hitungan manual untuk melihat perbandingannya.'
+         :selisih<=5?'Selisih kecil. Cara manual masih andal untuk kondisi istirahat.'
+         :'Selisih cukup besar. Umumnya karena ada detak terlewat saat menghitung manual, atau jari bergeser saat pengukuran.')
+       +'</p><button class="btn sig full" id="b-sim-selesai2" style="margin-top:12px">Tandai simulasi selesai</button></div>';
+      satu('b-sim-selesai2').onclick=function(){simSelesai(null,this)};
+    });
+  }
+}
+
+/* ---------- GPS sungguhan ---------- */
+function mesinGPS(){
+  var kanvas=satu('gps-kanvas');
+  var lebar=kanvas.getBoundingClientRect().width;
+  kanvas.width=lebar*2;kanvas.height=420;
+  var kt=kanvas.getContext('2d');kt.scale(2,2);
+  var W=lebar,H=210;
+  var titik=[],pantau=null,mulai=0,puncak=0;
+
+  function gambar(){
+    kt.clearRect(0,0,W,H);
+    kt.strokeStyle='rgba(255,255,255,.12)';kt.lineWidth=1;kt.strokeRect(10,10,W-20,H-20);
+    if(titik.length<2){
+      kt.fillStyle='rgba(255,255,255,.5)';kt.font='12px sans-serif';kt.textAlign='center';
+      kt.fillText(titik.length?'Menunggu titik berikutnya...':'Belum ada titik terekam',W/2,H/2);
+      return;
+    }
+    var la=titik.map(function(p){return p.lat}),lo=titik.map(function(p){return p.lng});
+    var minLa=Math.min.apply(null,la),maxLa=Math.max.apply(null,la);
+    var minLo=Math.min.apply(null,lo),maxLo=Math.max.apply(null,lo);
+    var rLa=Math.max(1e-5,maxLa-minLa),rLo=Math.max(1e-5,maxLo-minLo);
+    var sk=Math.min((W-40)/rLo,(H-40)/rLa);
+    var pos=function(p){return [W/2+(p.lng-(minLo+maxLo)/2)*sk, H/2-(p.lat-(minLa+maxLa)/2)*sk]};
+    kt.lineWidth=2.6;kt.lineCap='round';
+    for(var i=1;i<titik.length;i++){
+      var a=pos(titik[i-1]),b=pos(titik[i]);
+      var kec=titik[i].kec||0;
+      kt.strokeStyle=kec>13?'#FF5A36':kec>7?'#C98A21':'#2E9E5B';
+      kt.beginPath();kt.moveTo(a[0],a[1]);kt.lineTo(b[0],b[1]);kt.stroke();
+    }
+    var akhir=pos(titik[titik.length-1]);
+    kt.fillStyle='#fff';kt.beginPath();kt.arc(akhir[0],akhir[1],4.5,0,7);kt.fill();
+  }
+  gambar();
+
+  function jarakMeter(a,b){
+    var R=6371000,d1=a.lat*Math.PI/180,d2=b.lat*Math.PI/180;
+    var dd=(b.lat-a.lat)*Math.PI/180,dl=(b.lng-a.lng)*Math.PI/180;
+    var x=Math.sin(dd/2)*Math.sin(dd/2)+Math.cos(d1)*Math.cos(d2)*Math.sin(dl/2)*Math.sin(dl/2);
+    return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
+  }
+  function total(){var s=0;for(var i=1;i<titik.length;i++)s+=jarakMeter(titik[i-1],titik[i]);return s}
+
+  satu('g-mulai').onclick=function(){
+    if(!navigator.geolocation){satu('g-pesan').className='errbox';
+      satu('g-pesan').textContent='Perangkat ini tidak mendukung GPS.';return}
+    titik=[];puncak=0;mulai=Date.now();
+    this.classList.add('hide');satu('g-henti').classList.remove('hide');
+    satu('g-pesan').className='note';
+    satu('g-pesan').textContent='Sedang merekam. Biarkan aplikasi tetap terbuka sambil berjalan atau berlari.';
+    pantau=navigator.geolocation.watchPosition(function(p){
+      var baru={lat:p.coords.latitude,lng:p.coords.longitude,t:Date.now(),kec:(p.coords.speed||0)*3.6};
+      if(titik.length){
+        var d=jarakMeter(titik[titik.length-1],baru);
+        if(d<1)return;                       // abaikan pergeseran sinyal saat diam
+        if(!p.coords.speed){
+          var dt=(baru.t-titik[titik.length-1].t)/1000;
+          baru.kec=dt>0?(d/dt*3.6):0;
+        }
+      }
+      if(baru.kec>puncak&&baru.kec<45)puncak=baru.kec;
+      titik.push(baru);gambar();
+      var jarak=total(),detik=(Date.now()-mulai)/1000;
+      satu('g-jarak').textContent=Math.round(jarak);
+      satu('g-rata').textContent=detik>0?(jarak/detik*3.6).toFixed(1):'0.0';
+      satu('g-puncak').textContent=puncak.toFixed(1);
+      satu('g-titik').textContent=titik.length;
+    },function(e){
+      satu('g-pesan').className='errbox';
+      satu('g-pesan').textContent='GPS tidak dapat diakses ('+e.message+'). Pastikan izin lokasi diberikan.';
+    },{enableHighAccuracy:true,maximumAge:1000,timeout:15000});
+  };
+
+  satu('g-henti').onclick=function(){
+    if(pantau!==null){navigator.geolocation.clearWatch(pantau);pantau=null}
+    this.classList.add('hide');satu('g-mulai').classList.remove('hide');
+    satu('g-mulai').textContent='Rekam ulang';
+    var jarak=Math.round(total()),detik=(Date.now()-mulai)/1000;
+    if(titik.length<5){satu('g-pesan').className='errbox';
+      satu('g-pesan').textContent='Titik terlalu sedikit. Rekam minimal 2 menit sambil bergerak.';return}
+    var rata=(jarak/detik*3.6);
+    var lepas=sibuk(this,'Menyimpan...');
+    gudang('kirimSimulasi',{nim:S.nim,pertemuan:S.portal,
+      pengukuran:{jenis:'GPS',sensor:jarak,satuan:'meter',alat:navigator.platform||'HP'}},{antre:true})
+    .then(function(){
+      lepas();
+      var zona={jalan:0,sedang:0,sprint:0};
+      titik.forEach(function(p){var k=p.kec||0;if(k>13)zona.sprint++;else if(k>7)zona.sedang++;else zona.jalan++});
+      var n=titik.length||1;
+      var kotak=satu('g-hasil');kotak.className='';
+      kotak.innerHTML='<div class="card"><div class="lbl" style="margin-bottom:10px">Zona kecepatan</div>'
+       +[['Jalan atau pemulihan',Math.round(zona.jalan/n*100),'#2E9E5B'],
+         ['Lari sedang',Math.round(zona.sedang/n*100),'#C98A21'],
+         ['Sprint',Math.round(zona.sprint/n*100),'#FF5A36']].map(function(z){
+        return '<div style="margin-bottom:9px"><div class="row" style="font-size:13px;margin-bottom:4px">'
+        +'<span class="sp">'+z[0]+'</span><span class="mono">'+z[1]+'%</span></div>'
+        +'<div class="bar"><i style="width:'+z[1]+'%;background:'+z[2]+'"></i></div></div>'}).join('')
+       +'<p class="mut" style="margin:10px 0 0;font-size:13.5px">Total '+jarak+' meter dalam '
+       +Math.round(detik/60)+' menit, rata-rata '+rata.toFixed(1)+' km/jam. '
+       +'Jarak total saja tidak cukup; porsi sprint inilah yang paling menentukan kelelahan.</p>'
+       +'<button class="btn sig full" id="b-sim-selesai2" style="margin-top:12px">Tandai simulasi selesai</button></div>';
+      satu('b-sim-selesai2').onclick=function(){simSelesai(null,this)};
+    });
+  };
+}
+
+/* ---------- Sudut sendi ---------- */
+function mesinPose(){
+  var kanvas=satu('pose-kanvas');
+  var lebar=kanvas.getBoundingClientRect().width;
+  kanvas.width=lebar*2;kanvas.height=456;
+  var kt=kanvas.getContext('2d');kt.scale(2,2);
+  var W=lebar,H=228;
+  function gambar(f){
+    var k=Math.sin(f*Math.PI);
+    var lutut=175-k*98,pinggul=172-k*82,badan=4+k*26;
+    var cx=W/2,cy=H*0.26+k*44;
+    var py=cy+56,ly=py+44-k*8,ky=ly+48,miring=k*16;
+    kt.clearRect(0,0,W,H);
+    kt.strokeStyle='rgba(255,255,255,.10)';kt.lineWidth=1;
+    kt.beginPath();kt.moveTo(18,H-20);kt.lineTo(W-18,H-20);kt.stroke();
+    kt.strokeStyle='#00E0C0';kt.lineWidth=2.6;kt.lineCap='round';
+    kt.beginPath();
+    kt.moveTo(cx+miring,cy);kt.lineTo(cx,py);
+    kt.lineTo(cx-14-k*10,ly);kt.lineTo(cx-4,ky);
+    kt.moveTo(cx,py);kt.lineTo(cx+16+k*8,ly);kt.lineTo(cx+8,ky);
+    kt.moveTo(cx+miring,cy+14);kt.lineTo(cx+30+k*14,cy+42);
+    kt.moveTo(cx+miring,cy+14);kt.lineTo(cx-28-k*10,cy+38);
+    kt.stroke();
+    kt.fillStyle='#fff';kt.beginPath();kt.arc(cx+miring,cy-12,11,0,7);kt.fill();
+    [[cx+miring,cy],[cx,py],[cx-14-k*10,ly],[cx+16+k*8,ly],[cx-4,ky],[cx+8,ky]].forEach(function(j){
+      kt.fillStyle='#FF5A36';kt.beginPath();kt.arc(j[0],j[1],3.6,0,7);kt.fill()});
+    kt.fillStyle='rgba(255,255,255,.85)';kt.font='600 12px monospace';kt.textAlign='right';
+    kt.fillText(Math.round(lutut)+'\u00B0',cx-30-k*10,ly+4);
+    satu('a-lutut').innerHTML=Math.round(lutut)+'\u00B0';
+    satu('a-pinggul').innerHTML=Math.round(pinggul)+'\u00B0';
+    satu('a-badan').innerHTML=Math.round(badan)+'\u00B0';
+    satu('pose-nilai').textContent=Math.round(f*100)+'%';
+  }
+  gambar(0);
+  satu('pose-geser').oninput=function(){gambar(this.value/100)};
+}
+
+/* ---------- Dashboard ---------- */
+function mesinDash(){
+  var kanvas=satu('dash-kanvas');
+  var lebar=kanvas.getBoundingClientRect().width;
+  kanvas.width=lebar*2;kanvas.height=400;
+  var kt=kanvas.getContext('2d');kt.scale(2,2);
+  var W=lebar,H=200,m=0;
+  var judul=['Jarak tempuh (meter)','Detak rata-rata (BPM)','Jumlah sprint'];
+  var catatan=['Dedi menempuh jarak terjauh, tetapi jarak saja belum bercerita soal beban.',
+   'Detak rata-rata Cakra paling tinggi. Perlu diperiksa apakah pemulihannya cukup.',
+   'Dedi dan Bima paling banyak sprint. Merekalah yang paling perlu dirotasi.'];
+  function gambar(){
+    kt.clearRect(0,0,W,H);
+    var nilai=DATA_ATLET.map(function(a){return a[m+1]});
+    var maks=Math.max.apply(null,nilai)*1.15;
+    var bw=(W-24)/DATA_ATLET.length;
+    DATA_ATLET.forEach(function(a,i){
+      var v=a[m+1],tinggi=(v/maks)*(H-52),px=14+i*bw,py=H-30-tinggi;
+      kt.fillStyle=(v===Math.max.apply(null,nilai))?'#12161C':'#C3CCC9';
+      kt.beginPath();
+      if(kt.roundRect)kt.roundRect(px,py,bw-12,tinggi,5);else kt.rect(px,py,bw-12,tinggi);
+      kt.fill();
+      kt.fillStyle='#5D686F';kt.font='11px sans-serif';kt.textAlign='center';
+      kt.fillText(a[0],px+(bw-12)/2,H-12);
+      kt.fillStyle='#12161C';kt.font='700 11px monospace';
+      kt.fillText(v,px+(bw-12)/2,py-6);
+    });
+    kt.fillStyle='#8C959B';kt.font='11px sans-serif';kt.textAlign='left';
+    kt.fillText(judul[m],2,12);
+    satu('dash-catatan').textContent=catatan[m];
+  }
+  gambar();
+  pada('[data-metrik]','click',function(){
+    m=+this.dataset.metrik;
+    var b=document.querySelectorAll('[data-metrik]');
+    for(var i=0;i<b.length;i++)b[i].classList.toggle('on',b[i]===this);
+    gambar();
+  });
+}
+
+/* ---------- Ujian pilihan ganda ---------- */
+function mesinUjian(){
+  var p=P(S.portal);if(!p||!p.soal.length)return;
+  var i=0,jawaban={};
+  function tampil(){
+    var kotak=satu('ujian-kotak');
+    if(i>=p.soal.length){
+      kotak.innerHTML=vMuat('Memeriksa jawaban');
+      gudang('kirimUjian',{nim:S.nim,pertemuan:S.portal,jawaban:jawaban}).then(function(r){
+        kotak.innerHTML='';
+        var hasil=satu('ujian-hasil');hasil.className='';
+        if(!r.ok){hasil.innerHTML='<div class="errbox">'+esc(r.pesan)+'</div>';return}
+        tandaiLokal(S.portal,'sim');simpanSesi();
+        hasil.innerHTML='<div class="card"><div class="lbl">Hasil</div>'
+         +'<div class="readout" style="margin:6px 0">'+r.nilai+'</div>'
+         +'<p class="mut" style="margin:0">'+r.benar+' dari '+r.total+' soal benar. Nilai sudah tercatat.</p>'
+         +'<button class="btn sig full" id="b-ujian-tutup" style="margin-top:12px">Kembali ke portal</button></div>';
+        satu('b-ujian-tutup').onclick=function(){go('portal')};
+      });
+      return;
+    }
+    var s=p.soal[i];
+    var huruf=['A','B','C','D'];
+    kotak.innerHTML='<div class="card"><div class="row" style="margin-bottom:10px">'
+     +'<span class="lbl sp">Soal '+(i+1)+' dari '+p.soal.length+'</span></div>'
+     +'<p style="margin:0 0 12px;font-size:15px;font-weight:500">'+esc(s.tanya)+'</p><div class="stack">'
+     +s.pilihan.map(function(o,k){
+       return '<button class="btn full" data-pilih="'+huruf[k]+'" style="justify-content:flex-start;text-align:left">'
+       +'<b class="mono" style="margin-right:6px">'+huruf[k]+'</b> '+esc(o)+'</button>'}).join('')
+     +'</div></div>';
+    pada('[data-pilih]','click',function(){
+      jawaban[s.no]=this.dataset.pilih;
+      i++;tampil();
+    });
+  }
+  tampil();
+}
+
+/* =====================================================================
+   TOMBOL SISI DOSEN
+   ===================================================================== */
+function ikatDosen(){
+  pada('[data-dtab]','click',function(){
+    S.layar=this.dataset.dtab;renderDosen();
+    if(S.layar==='dPanel')ambilRingkasan();
+    if(S.layar==='dKelas')ambilPresensiKelas();
+    if(S.layar==='dRekap')ambilRekap();
+  });
+  pada('[data-dback]','click',function(){S.layar=this.dataset.dback;renderDosen()});
+
+  var dm=satu('b-dosen-masuk');
+  if(dm)dm.onclick=function(){
+    var sandi=satu('d-sandi').value;
+    if(!sandi)return salah('d-salah','Isi kata sandi.');
+    var lepas=sibuk(dm,'Memeriksa...');
+    gudang('masukDosen',{sandi:sandi}).then(function(r){
+      lepas();
+      if(!r.ok)return salah('d-salah',r.pesan);
+      S.tiket=r.tiket;S.dosen=r;S.masuk=true;S.peran='dosen';S.layar='dPanel';
+      Simpan.taruh('tiket',r.tiket);
+      renderDosen();ambilRingkasan();
+    });
+  };
+
+  var kd=satu('b-keluar-dosen');
+  if(kd)kd.onclick=function(){S.tiket=null;Simpan.hapus('tiket');S.peran='mhs';
+    S.layar=S.nim?'peta':'daftar';S.masuk=!!S.nim;render()};
+
+  var bp=satu('b-presentasi');
+  if(bp)bp.onclick=function(){
+    if(!S.konten){ambilKonten().then(function(){bukaPresentasi(1)})}else bukaPresentasi(1);
+  };
+
+  pada('[data-daksi]','click',function(){
+    var a=this.dataset.daksi;
+    if(a.indexOf('buka:')===0){
+      var k=a.split(':')[1],tb=this,lepas=sibuk(tb,'...');
+      gudang('bukaPertemuan',{tiket:S.tiket,kelas:k}).then(function(r){
+        lepas();alert(r.pesan||'Selesai');if(r.ok)ambilRingkasan();
+      });
+    }else{S.layar=a;renderDosen();if(a==='dNilai')ambilAntrian()}
+  });
+
+  pada('[data-kls]','click',function(){S.kelasPilih=this.dataset.kls;renderDosen();ambilPresensiKelas()});
+  pada('[data-rkls]','click',function(){S.kelasPilih=this.dataset.rkls;renderDosen();ambilRekap()});
+  pada('[data-cepat]','click',function(){satu('d-nilai').value=this.dataset.cepat});
+  pada('[data-komen]','click',function(){
+    var t=satu('d-komentar');t.value=(t.value?t.value+' ':'')+this.dataset.komen+'.';
+  });
+
+  var ds=satu('d-simpan');
+  if(ds)ds.onclick=function(){
+    var t=S.antri[0],lepas=sibuk(ds,'Menyimpan...');
+    gudang('simpanNilai',{tiket:S.tiket,nim:t.nim,pertemuan:t.pertemuan,
+      nilai:Number(satu('d-nilai').value),komentar:satu('d-komentar').value}).then(function(r){
+      lepas();
+      if(!r.ok)return alert(r.pesan);
+      S.antri.shift();renderDosen();
+    });
+  };
+  var dl=satu('d-lewati');
+  if(dl)dl.onclick=function(){S.antri.push(S.antri.shift());renderDosen()};
+}
+
+/* =====================================================================
+   PENGAMBILAN DATA
+   ===================================================================== */
+function ambilKonten(paksa){
+  var simpanan=Simpan.ambil('konten_'+S.kelas);
+  if(simpanan&&!paksa){try{S.konten=JSON.parse(simpanan)}catch(e){}}
+  return gudang('konten',{kelas:S.kelas}).then(function(r){
+    if(r.ok){S.konten=r.data;Simpan.taruh('konten_'+S.kelas,JSON.stringify(r.data))}
+    else if(!S.konten)tampilPita('Materi belum dapat dimuat. Periksa sambungan.','');
+    render();
+  });
+}
+function ambilNilai(){
+  gudang('nilaiSaya',{nim:S.nim}).then(function(r){if(r.ok){S.nilai=r.data;render()}});
+}
+function ambilRingkasan(){
+  gudang('ringkasan',{tiket:S.tiket}).then(function(r){
+    if(r.sesiHabis){S.tiket=null;S.layar='dPintu';renderDosen();return}
+    if(r.ok){S.ringkasan=r.data;renderDosen()}
+  });
+}
+function ambilAntrian(){
+  S.antri=null;
+  gudang('daftarPenilaian',{tiket:S.tiket}).then(function(r){
+    S.antri=r.ok?r.data:[];renderDosen();
+  });
+}
+function ambilPresensiKelas(){
+  var k=S.kelasPilih||'A';
+  var info=null;
+  if(S.ringkasan)S.ringkasan.kelas.forEach(function(x){if(x.kode===k)info=x});
+  var pert=info?info.pertemuanTerbuka:1;
+  gudang('daftarPresensi',{tiket:S.tiket,kelas:k,pertemuan:pert}).then(function(r){
+    var kotak=satu('kotak-presensi');if(!kotak)return;
+    if(!r.ok||!r.data.length){kotak.innerHTML='<div class="note">Belum ada mahasiswa terdaftar di kelas ini.</div>';return}
+    kotak.innerHTML='<div class="list">'+r.data.map(function(m){
+      var warna=m.status==='Belum presensi'?'var(--err)':m.status==='Terlambat'?'var(--warn)':'var(--ok)';
+      return '<div class="item"><span style="width:32px;height:32px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">'+esc(m.nama.charAt(0))+'</span>'
+      +'<span class="sp"><span style="display:block;font-size:14px">'+esc(m.nama)+'</span>'
+      +'<span class="mut mono" style="font-size:12px">'+esc(m.nim)+(m.waktu?' \u00B7 '+esc(m.waktu):'')+'</span></span>'
+      +(m.foto?'<a class="btn sm" href="'+esc(m.foto)+'" target="_blank" rel="noopener">Foto</a>':'')
+      +'<span class="chip" style="color:'+warna+'">'+esc(m.status)+'</span></div>';
+    }).join('')+'</div>';
+  });
+}
+function ambilRekap(){
+  var k=S.kelasPilih||'A';
+  gudang('rekapKelas',{tiket:S.tiket,kelas:k}).then(function(r){
+    var kotak=satu('kotak-rekap');if(!kotak)return;
+    if(!r.ok||!r.data.length){kotak.innerHTML='<div class="note">Belum ada data nilai di kelas ini.</div>';return}
+    kotak.innerHTML='<div class="list">'+r.data.map(function(m){
+      return '<div class="item"><span class="sp"><span style="display:block;font-size:14px">'+esc(m.nama)+'</span>'
+      +'<span class="mut mono" style="font-size:12px">'+esc(m.nim)+' \u00B7 bobot '+m.bobotTerkumpul+'%</span></span>'
+      +'<span class="mono" style="font-size:15px;font-weight:700">'+(m.nilaiAkhir===null?'\u2014':m.nilaiAkhir)+'</span>'
+      +'<span class="chip">'+esc(m.huruf||'')+'</span></div>';
+    }).join('')+'</div>'
+    +'<p class="mut" style="font-size:12px;margin-top:12px">Nilai dihitung dari komponen yang sudah dinilai saja. '
+    +'Rekap lengkap tersedia di tab Nilai Akhir pada berkas Sheets.</p>';
+  });
+}
+
+/* =====================================================================
+   SESI DAN AWAL JALAN
+   ===================================================================== */
+function simpanSesi(){
+  Simpan.taruh('sesi',JSON.stringify({nim:S.nim,nama:S.nama,kelas:S.kelas,namaKelas:S.namaKelas,
+    terbuka:S.terbuka,progres:S.progres,kelompok:S.kelompok}));
+}
+function pakaiData(d){
+  S.nim=d.nim;S.nama=d.nama;S.kelas=d.kelas;S.namaKelas=d.namaKelas||'';
+  S.terbuka=d.pertemuanTerbuka||1;S.kelompok=d.kelompok||null;
+  S.progres=d.progres||{};S.masuk=true;S.peran='mhs';S.layar='peta';S.tab='peta';
+  simpanSesi();
+}
+function lakukanDaftar(){
+  var nama=satu('i-nama').value.trim(),nim=satu('i-nim').value.trim(),kode=satu('i-kode').value.trim().toUpperCase();
+  if(!nama||!nim)return salah('pesan-daftar','Isi nama dan NIM terlebih dahulu.');
+  if(!kode)return salah('pesan-daftar','Isi kode kelas dari dosen.');
+  var b=satu('b-masuk'),lepas=sibuk(b,'Menghubungi...');
+  gudang('daftar',{nama:nama,nim:nim,kodeKelas:kode}).then(function(r){
+    lepas();
+    if(!r.ok)return salah('pesan-daftar',r.pesan);
+    pakaiData(r.data);render();ambilKonten();
+  });
+}
+function muatUlangProfil(){
+  if(!S.nim)return;
+  gudang('masuk',{nim:S.nim}).then(function(r){if(r.ok){pakaiData(r.data);render()}});
+}
+
+function mulaiAplikasi(){
+  var sesi=Simpan.ambil('sesi');
+  if(sesi){
+    try{
+      var d=JSON.parse(sesi);
+      S.nim=d.nim;S.nama=d.nama;S.kelas=d.kelas;S.namaKelas=d.namaKelas;
+      S.terbuka=d.terbuka||1;S.progres=d.progres||{};S.kelompok=d.kelompok||null;
+      S.masuk=true;S.layar='peta';
+      var simpanan=Simpan.ambil('konten_'+S.kelas);
+      if(simpanan)S.konten=JSON.parse(simpanan);
+    }catch(e){}
+  }
+  render();
+  if(S.masuk){ambilKonten();muatUlangProfil()}
+  kirimAntrean();
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+}
+mulaiAplikasi();
+</script>
+</body>
+</html>
+',
   // Harus sama persis dengan "Kunci rahasia aplikasi" di tab Pengaturan
   KUNCI: 'tekor-IKOR-2026'
 };
