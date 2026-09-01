@@ -1,0 +1,17 @@
+{
+  "name": "Teknologi Keolahragaan",
+  "short_name": "Tekor",
+  "description": "Aplikasi mata kuliah Teknologi Keolahragaan — Ilmu Keolahragaan UNIMED",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F5F4",
+  "theme_color": "#12161C",
+  "lang": "id",
+  "icons": [
+    { "src": "ikon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "ikon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "ikon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
