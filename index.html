@@ -140,9 +140,9 @@ video{width:100%;display:block}
 
 var KONFIG = {
   // Tempel URL Web App dari Apps Script (Deploy > New deployment > Web app)
-  ALAMAT_GUDANG: 'https://script.google.com/macros/s/AKfycby8RCBJxzHvSuqJeaQLOrnpI9UP_R1gMzCtIEjSc0B-LpMPDwzEbe7oOdL_uWhWiCkY/exec',
+  ALAMAT_GUDANG: 'TEMPEL_URL_APPS_SCRIPT_DI_SINI',
   // Harus sama persis dengan "Kunci rahasia aplikasi" di tab Pengaturan
-  KUNCI: 'tekor-IKOR-2026'
+  KUNCI: 'tekor-2026-ganti'
 };
 
 /* --------------------------------------------------------------------
@@ -294,8 +294,10 @@ var SCENES = {
    ALUR MASUK
    ===================================================================== */
 function render(){
-  if(!S.masuk){R.innerHTML=vDaftar();TB.innerHTML='';ikat();return}
+  // Pemeriksaan dosen harus lebih dulu: pintu dosen dapat dibuka
+  // dari halaman awal, saat belum ada mahasiswa yang masuk.
   if(S.peran==='dosen'){renderDosen();return}
+  if(!S.masuk){R.innerHTML=vDaftar();TB.innerHTML='';ikat();return}
   if(!S.konten){R.innerHTML=vMuat('Mengambil materi kuliah');TB.innerHTML='';return}
   var v;
   switch(S.layar){
